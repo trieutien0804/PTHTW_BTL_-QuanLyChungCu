@@ -26,4 +26,9 @@
     <definition name="userHome" template="/WEB-INF/pages/userHome.jsp">
         <put-attribute name="title" value="Trang User" />
     </definition>
+    <definition name="adminUser" extends="baseLayout">
+        <put-attribute name="title" value="Đăng nhập" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/adminUser.jsp" />
+    </definition>
 </tiles-definitions>

@@ -15,6 +15,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -36,6 +37,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    public static final String ADMIN = "ROLE_ADMIN";
+    public static final String USER = "ROLE_USER";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -51,6 +54,8 @@ public class User implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "password")
     private String password;
+    @Transient
+    private String comfirmPassword;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -61,6 +66,7 @@ public class User implements Serializable {
     private String avatar;
     @OneToOne(mappedBy = "userId")
     private Resident resident;
+    
 
     public User() {
     }
@@ -147,6 +153,20 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "com.chungcu.pojo.User[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the comfirmPassword
+     */
+    public String getComfirmPassword() {
+        return comfirmPassword;
+    }
+
+    /**
+     * @param comfirmPassword the comfirmPassword to set
+     */
+    public void setComfirmPassword(String comfirmPassword) {
+        this.comfirmPassword = comfirmPassword;
     }
     
 }

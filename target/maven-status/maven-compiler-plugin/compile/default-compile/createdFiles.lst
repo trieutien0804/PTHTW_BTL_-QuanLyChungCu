@@ -41,3 +41,4 @@ com\chungcu\pojo\Apartment.class
 com\chungcu\pojo\Bill.class
 com\chungcu\services\ApartmentService.class
 com\chungcu\repositories\impl\ApartmentRepositoryImpl.class
+com\chungcu\controllers\admin\AdminUserController.class

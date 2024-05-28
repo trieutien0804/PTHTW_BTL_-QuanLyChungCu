@@ -7,11 +7,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <body>
-    <img src="/images/image2.png" alt=""/>
     <h1>Hello World!</h1>
     <ul>
         <c:forEach items="${apartments}" var="p">
-            <li>${p.apartmentId} - ${p.status}</li>
+            <li>${p.id} - ${p.apartmentNumber} - ${p.status}</li>
             </c:forEach>
     </ul>
 </body>
