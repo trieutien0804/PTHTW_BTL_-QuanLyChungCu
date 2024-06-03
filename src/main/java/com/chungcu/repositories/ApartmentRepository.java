@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface ApartmentRepository {
     List<Apartment> getApartments();
+    boolean addOrUpdateApartment(Apartment apartment);
+    List<Apartment> findAllApartmentsWithStatus();
 }

@@ -32,10 +32,10 @@ public class UserController {
     public String loginSuccess() {
         User user = userDetailsService.getLoggedInUser();
         if ("ROLE_ADMIN".equals(user.getRole())) {
-            return "redirect:/admin/dashboard";
+            return "redirect:/admin";
         }
         else if ("ROLE_USER".equals(user.getRole())){
-            return "redirect:/user/dashboard";
+            return "redirect:/user";
         }
         return "/";
     }

@@ -10,25 +10,49 @@
         <put-attribute name="footer"
                        value="/WEB-INF/layout/footer.jsp" />
     </definition>
-    <definition name="index" extends="baseLayout">
-        <put-attribute name="title" value="Trang chủ" />
-        <put-attribute name="content"
-                       value="/WEB-INF/pages/index.jsp" />
+    <definition name="login" template="/WEB-INF/pages/login.jsp">
     </definition>
-    <definition name="login" extends="baseLayout">
-        <put-attribute name="title" value="Đăng nhập" />
+    <definition name="adminHome" extends="baseLayout">
+        <put-attribute name="title" value="Chung cư ABC - Admin" />
         <put-attribute name="content"
-                       value="/WEB-INF/pages/login.jsp" />
-    </definition>
-    <definition name="adminHome" template="/WEB-INF/pages/adminHome.jsp">
-        <put-attribute name="title" value="Trang Admin" />
+                       value="/WEB-INF/pages/adminHome.jsp" />
     </definition>
     <definition name="userHome" template="/WEB-INF/pages/userHome.jsp">
         <put-attribute name="title" value="Trang User" />
     </definition>
     <definition name="adminUser" extends="baseLayout">
-        <put-attribute name="title" value="Đăng nhập" />
+        <put-attribute name="title" value="Chung cư ABC - Admin" />
         <put-attribute name="content"
                        value="/WEB-INF/pages/adminUser.jsp" />
+    </definition>
+    <definition name="apartment" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý căn hộ  | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/apartment.jsp" />
+    </definition>
+    <definition name="addApartment" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý căn hộ  | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/addApartment.jsp" />
+    </definition>
+    <definition name="resident" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý cư dân | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/resident.jsp" />
+    </definition>
+    <definition name="addResident" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý cư dân | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/addResident.jsp" />
+    </definition>
+    <definition name="survey" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý khảo sát | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/survey.jsp" />
+    </definition>
+    <definition name="locker" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý tủ đồ | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/locker.jsp" />
     </definition>
 </tiles-definitions>

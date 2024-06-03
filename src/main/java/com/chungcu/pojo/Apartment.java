@@ -15,8 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -32,9 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Apartment.findAll", query = "SELECT a FROM Apartment a"),
     @NamedQuery(name = "Apartment.findById", query = "SELECT a FROM Apartment a WHERE a.id = :id"),
-    @NamedQuery(name = "Apartment.findByApartmentNumber", query = "SELECT a FROM Apartment a WHERE a.apartmentNumber = :apartmentNumber"),
-    @NamedQuery(name = "Apartment.findByBlock", query = "SELECT a FROM Apartment a WHERE a.block = :block"),
-    @NamedQuery(name = "Apartment.findByStatus", query = "SELECT a FROM Apartment a WHERE a.status = :status")})
+    @NamedQuery(name = "Apartment.findByApartmentNumber", query = "SELECT a FROM Apartment a WHERE a.apartmentNumber = :apartmentNumber")})
 public class Apartment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,18 +46,8 @@ public class Apartment implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "apartment_number")
     private String apartmentNumber;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "block")
-    private String block;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "status")
+    @Transient
     private String status;
-    @OneToOne(mappedBy = "apartmentId")
-    private Locker locker;
     @OneToMany(mappedBy = "apartmentId")
     private Set<Resident> residentSet;
 
@@ -70,10 +58,9 @@ public class Apartment implements Serializable {
         this.id = id;
     }
 
-    public Apartment(Integer id, String apartmentNumber, String block, String status) {
+    public Apartment(Integer id, String apartmentNumber, String status) {
         this.id = id;
         this.apartmentNumber = apartmentNumber;
-        this.block = block;
         this.status = status;
     }
 
@@ -91,30 +78,6 @@ public class Apartment implements Serializable {
 
     public void setApartmentNumber(String apartmentNumber) {
         this.apartmentNumber = apartmentNumber;
-    }
-
-    public String getBlock() {
-        return block;
-    }
-
-    public void setBlock(String block) {
-        this.block = block;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Locker getLocker() {
-        return locker;
-    }
-
-    public void setLocker(Locker locker) {
-        this.locker = locker;
     }
 
     @XmlTransient
@@ -149,6 +112,20 @@ public class Apartment implements Serializable {
     @Override
     public String toString() {
         return "com.chungcu.pojo.Apartment[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
     }
     
 }

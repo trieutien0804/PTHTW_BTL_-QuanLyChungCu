@@ -12,9 +12,12 @@
             <a class="navbar-brand" href="#">Chung cư ABC</a>
         </div>
         <ul class="navbar-nav me-auto">
-            <li class="active nav-item"><a href="#" class="nav-link">Trang Chủ</a></li>
-            <li><a class="nav-link" href="#">Cư dân</a></li>
-            <li><a class="nav-link" href="#">Căn hộ</a></li>
+            <li class="active nav-item"><a href="<c:url value="/admin/apartment"/>" class="nav-link">Căn hộ</a></li>
+            <li><a class="nav-link" href="<c:url value="/admin/resident"/>">Cư dân</a></li>
+            <li><a class="nav-link" href="#">Hóa đơn</a></li>
+            <li><a class="nav-link" href="<c:url value="/admin/survey"/>">Khảo sát</a></li>
+            <li><a class="nav-link" href="#">Tủ đồ</a></li>
+            <li><a class="nav-link" href="#">Đánh giá</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <c:if test="${pageContext.request.userPrincipal.name == null}">
@@ -24,7 +27,9 @@
             </c:if>
             <c:if test="${pageContext.request.userPrincipal.name != null}">
                 <li>
-                    <a href="#" class="btn btn-outline-light">${pageContext.request.userPrincipal.name}</a>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Xin chào ${pageContext.request.userPrincipal.name}</a>
+                    </div>
                 </li>
                 <li>
                     <a href="<c:url value="/logout" />" class="btn btn-outline-light">Đăng xuất</a>

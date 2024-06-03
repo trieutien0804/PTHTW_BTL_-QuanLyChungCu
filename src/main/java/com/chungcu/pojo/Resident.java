@@ -36,10 +36,15 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Resident.findById", query = "SELECT r FROM Resident r WHERE r.id = :id"),
     @NamedQuery(name = "Resident.findByName", query = "SELECT r FROM Resident r WHERE r.name = :name"),
     @NamedQuery(name = "Resident.findByPhoneNumber", query = "SELECT r FROM Resident r WHERE r.phoneNumber = :phoneNumber"),
-    @NamedQuery(name = "Resident.findByEmail", query = "SELECT r FROM Resident r WHERE r.email = :email")})
+    @NamedQuery(name = "Resident.findByEmail", query = "SELECT r FROM Resident r WHERE r.email = :email"),
+    @NamedQuery(name = "Resident.findByIsActive", query = "SELECT r FROM Resident r WHERE r.isActive = :isActive")})
 public class Resident implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    public static final short ACTIVE = 1;
+    public static final short INACTIVE = 0;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -59,6 +64,10 @@ public class Resident implements Serializable {
     @Size(max = 255)
     @Column(name = "email")
     private String email;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "is_active")
+    private short isActive;
     @OneToMany(mappedBy = "residentId")
     private Set<Feedback> feedbackSet;
     @OneToMany(mappedBy = "residentId")
@@ -67,6 +76,8 @@ public class Resident implements Serializable {
     private Set<Bill> billSet;
     @OneToMany(mappedBy = "residentId")
     private Set<Surveyanswer> surveyanswerSet;
+    @OneToMany(mappedBy = "residentId")
+    private Set<Locker> lockerSet;
     @OneToMany(mappedBy = "residentId")
     private Set<Parkingcard> parkingcardSet;
     @JoinColumn(name = "apartment_id", referencedColumnName = "id")
@@ -83,10 +94,11 @@ public class Resident implements Serializable {
         this.id = id;
     }
 
-    public Resident(Integer id, String name, String phoneNumber) {
+    public Resident(Integer id, String name, String phoneNumber, short isActive) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.isActive = isActive;
     }
 
     public Integer getId() {
@@ -119,6 +131,14 @@ public class Resident implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public short getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(short isActive) {
+        this.isActive = isActive;
     }
 
     @XmlTransient
@@ -155,6 +175,15 @@ public class Resident implements Serializable {
 
     public void setSurveyanswerSet(Set<Surveyanswer> surveyanswerSet) {
         this.surveyanswerSet = surveyanswerSet;
+    }
+
+    @XmlTransient
+    public Set<Locker> getLockerSet() {
+        return lockerSet;
+    }
+
+    public void setLockerSet(Set<Locker> lockerSet) {
+        this.lockerSet = lockerSet;
     }
 
     @XmlTransient
@@ -206,5 +235,5 @@ public class Resident implements Serializable {
     public String toString() {
         return "com.chungcu.pojo.Resident[ id=" + id + " ]";
     }
-    
+
 }

@@ -13,10 +13,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -47,9 +47,9 @@ public class Locker implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "locker_number")
     private String lockerNumber;
-    @JoinColumn(name = "apartment_id", referencedColumnName = "id")
-    @OneToOne
-    private Apartment apartmentId;
+    @JoinColumn(name = "resident_id", referencedColumnName = "id")
+    @ManyToOne
+    private Resident residentId;
     @OneToMany(mappedBy = "lockerId")
     private Set<Order1> order1Set;
 
@@ -81,12 +81,12 @@ public class Locker implements Serializable {
         this.lockerNumber = lockerNumber;
     }
 
-    public Apartment getApartmentId() {
-        return apartmentId;
+    public Resident getResidentId() {
+        return residentId;
     }
 
-    public void setApartmentId(Apartment apartmentId) {
-        this.apartmentId = apartmentId;
+    public void setResidentId(Resident residentId) {
+        this.residentId = residentId;
     }
 
     @XmlTransient

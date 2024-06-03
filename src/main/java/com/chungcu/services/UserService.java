@@ -4,6 +4,8 @@
  */
 package com.chungcu.services;
 
+import com.chungcu.pojo.Locker;
+import com.chungcu.pojo.Resident;
 import com.chungcu.pojo.User;
 import java.util.List;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @author tien
  */
 public interface UserService extends UserDetailsService{
-    boolean addUser(User user);
+    boolean addUser(User user, Locker locker, Resident resident);
     List<User> getUsers(String username);
     User getLoggedInUser();
 }
