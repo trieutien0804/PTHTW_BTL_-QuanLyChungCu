@@ -6,7 +6,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<link href="<c:url value="/css/header.css" />" rel="stylesheet"/>
+<nav class="navbar navbar-expand-sm">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Chung cư ABC</a>
@@ -22,7 +23,7 @@
         <ul class="nav navbar-nav navbar-right">
             <c:if test="${pageContext.request.userPrincipal.name == null}">
                 <li>
-                    <a href="<c:url value="/login" />" class="btn btn-outline-light">Đăng nhập</a>
+                    <a href="<c:url value="/login" />" class="btn btn-primary">Đăng nhập</a>
                 </li>
             </c:if>
             <c:if test="${pageContext.request.userPrincipal.name != null}">

@@ -48,6 +48,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http)
             throws Exception {
+        http.formLogin().loginPage("/login");
         http.formLogin().usernameParameter("username").passwordParameter("password");
 
         http.formLogin().defaultSuccessUrl("/loginsuccess")

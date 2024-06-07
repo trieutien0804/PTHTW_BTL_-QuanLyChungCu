@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -21,7 +22,7 @@ public class IndexController {
 
     @RequestMapping("/")
     public String index(Model model, Principal principal) {
-        if (principal != null) { // Kiểm tra đã đăng nhập chưa
+        if (principal != null) {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
             if (auth != null && auth.getAuthorities().stream()
@@ -35,12 +36,17 @@ public class IndexController {
         }
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     @RequestMapping("/admin")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String adminHome(Model model) {
         return "adminHome";
     }
-        
+
     @RequestMapping("/user")
     @PreAuthorize("hasRole('ROLE_USER')")
     public String userHome(Model model) {
