@@ -10,7 +10,7 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-                <Nav.Link href="/">Trang chủ</Nav.Link>
+                <Link className="me-3" to= "/">Trang chủ</Link>
                 <Nav.Link href="#link">Tủ đồ</Nav.Link>
                 <Nav.Link href="#link">Phản hồi</Nav.Link>
                 <Nav.Link href="#link">Khảo sát</Nav.Link>

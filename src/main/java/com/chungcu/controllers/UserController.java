@@ -20,12 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
     @Autowired
-    private UserService userDetailsService;
-    
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+
+    private UserService userDetailsService; 
+
 
     @PreAuthorize("isAuthenticated()")
     @RequestMapping("/loginsuccess")

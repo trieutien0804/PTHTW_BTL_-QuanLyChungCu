@@ -8,6 +8,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<link rel="stylesheet" href="url"/>
+
 <h1 class="text-center text-info mt-1">Thêm căn hộ</h1>
 <c:url value="/admin/addApartment" var="action" />
 <form:form method="post" action="${action}" modelAttribute="apartment">
