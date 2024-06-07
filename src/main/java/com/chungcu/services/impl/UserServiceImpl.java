@@ -4,12 +4,17 @@
  */
 package com.chungcu.services.impl;
 
+import com.chungcu.pojo.Locker;
+import com.chungcu.pojo.Resident;
 import com.chungcu.pojo.User;
+import com.chungcu.repositories.LockerRepository;
+import com.chungcu.repositories.ResidentRepository;
 import com.chungcu.repositories.UserRepositories;
 import com.chungcu.services.UserService;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,6 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -29,16 +35,41 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepositories userRepo;
-    
+
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder; 
+    private ResidentRepository residentRepo;
+
+    @Autowired
+    private LockerRepository lockerRepo;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
-    public boolean addUser(User user) {
+    @Transactional
+    public boolean addUser(User user, Locker locker, Resident resident) {
         String pass = user.getPassword();
         user.setPassword(this.passwordEncoder.encode(pass));
         user.setRole(User.USER);
-        return this.userRepo.addUser(user);
+        try {
+            int userId = this.userRepo.addUser(user);
+            if (userId != 0) {
+                resident.setUserId(new User(userId));
+                short active = 1;
+                resident.setIsActive(active);
+                int residentId = this.residentRepo.addResident(resident);
+                if (residentId != 0) {
+                    locker.setResidentId(new Resident(residentId));
+                    this.lockerRepo.addLocker(locker);
+                    return true;
+                }
+            }
+        } catch (HibernateException ex) {
+            System.err.print(ex.getMessage());  
+            return false;
+        }
+
+        return false;
     }
 
     @Override

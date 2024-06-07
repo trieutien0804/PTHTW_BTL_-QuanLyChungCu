@@ -17,8 +17,11 @@ public class NewMain {
      */
     public static void main(String[] args) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode("12345");
-        System.out.println(encodedPassword);
+        String encodedPassword = passwordEncoder.encode("admin1");
+        
+//        auth.userDetailsService(userDetailsService)
+//                .passwordEncoder(passwordEncoder());
+        System.out.println(encodedPassword); 
     }
     
 }

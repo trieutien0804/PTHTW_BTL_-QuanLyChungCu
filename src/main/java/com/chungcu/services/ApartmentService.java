@@ -6,7 +6,6 @@ package com.chungcu.services;
 
 import com.chungcu.pojo.Apartment;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
@@ -14,4 +13,7 @@ import java.util.Map;
  */
 public interface ApartmentService {
     List<Apartment> getApartments();
+    boolean addOrUpdateApartment(Apartment apartment);
+    List<Apartment> findAllApartmentsWithStatus();
+    List<Apartment> findAvailableApartments();
 }

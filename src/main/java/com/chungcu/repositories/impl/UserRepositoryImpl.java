@@ -31,14 +31,15 @@ public class UserRepositoryImpl implements UserRepositories {
     private LocalSessionFactoryBean factory;
 
     @Override
-    public boolean addUser(User user) {
+    public int addUser(User user) {
         try {
             Session session = this.factory.getObject().getCurrentSession();
-            session.save(user);
+            int id = (Integer) session.save(user);
+            return id;
         } catch (HibernateException ex) {
             System.err.print(ex.getMessage());
+            return 0;
         }
-        return false;
     }
 
     @Override
@@ -59,11 +60,9 @@ public class UserRepositoryImpl implements UserRepositories {
     }
 
 //    @Override
-//    public User getUserByUsername(String username) {
-//        List<User> users = this.getUsers(username);
-//        if (users != null && !users.isEmpty()) {
-//            return users.get(0);
-//        }
-//        return null;
+//    public User getUserById(int userId) {
+//        Session session = this.factory.getObject().getCurrentSession();
+//        User user = session.get(User.class, userId);
+//        return user;
 //    }
 }

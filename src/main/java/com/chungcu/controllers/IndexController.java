@@ -4,23 +4,14 @@
  */
 package com.chungcu.controllers;
 
-import com.chungcu.pojo.User;
-import com.chungcu.services.ApartmentService;
-import com.chungcu.services.UserService;
-import java.util.Map;
-import javax.persistence.Query;
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import java.security.Principal;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -28,16 +19,33 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @CrossOrigin()
 @Controller
-@ControllerAdvice
 public class IndexController {
-    
-    @Autowired
-    private ApartmentService apartmentService;
-    
-    
+
     @RequestMapping("/")
-    public String index(Model model) {
-        model.addAttribute("apartments", apartmentService.getApartments());
-        return "index";
-    }  
+    public String index(Model model, Principal principal) {
+        if (principal != null) { // Kiểm tra đã đăng nhập chưa
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+            if (auth != null && auth.getAuthorities().stream()
+                    .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
+                return "redirect:/admin";
+            } else {
+                return "redirect:/user";
+            }
+        } else {
+            return "redirect:/login";
+        }
+    }
+
+    @RequestMapping("/admin")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String adminHome(Model model) {
+        return "adminHome";
+    }
+        
+    @RequestMapping("/user")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public String userHome(Model model) {
+        return "userHome";
+    }
 }
