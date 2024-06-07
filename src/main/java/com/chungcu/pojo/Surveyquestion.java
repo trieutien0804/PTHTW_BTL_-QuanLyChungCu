@@ -26,15 +26,14 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author tien
+ * @author ptdzu
  */
 @Entity
 @Table(name = "surveyquestion")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Surveyquestion.findAll", query = "SELECT s FROM Surveyquestion s"),
-    @NamedQuery(name = "Surveyquestion.findById", query = "SELECT s FROM Surveyquestion s WHERE s.id = :id"),
-    @NamedQuery(name = "Surveyquestion.findByType", query = "SELECT s FROM Surveyquestion s WHERE s.type = :type")})
+    @NamedQuery(name = "Surveyquestion.findById", query = "SELECT s FROM Surveyquestion s WHERE s.id = :id")})
 public class Surveyquestion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,11 +48,6 @@ public class Surveyquestion implements Serializable {
     @Size(min = 1, max = 65535)
     @Column(name = "content")
     private String content;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "type")
-    private String type;
     @OneToMany(mappedBy = "surveyQuestionId")
     private Set<Surveyanswer> surveyanswerSet;
     @JoinColumn(name = "survey_id", referencedColumnName = "id")
@@ -67,10 +61,9 @@ public class Surveyquestion implements Serializable {
         this.id = id;
     }
 
-    public Surveyquestion(Integer id, String content, String type) {
+    public Surveyquestion(Integer id, String content) {
         this.id = id;
         this.content = content;
-        this.type = type;
     }
 
     public Integer getId() {
@@ -87,14 +80,6 @@ public class Surveyquestion implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     @XmlTransient

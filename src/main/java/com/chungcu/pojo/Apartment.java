@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author tien
+ * @author ptdzu
  */
 @Entity
 @Table(name = "apartment")
@@ -33,7 +33,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Apartment.findAll", query = "SELECT a FROM Apartment a"),
     @NamedQuery(name = "Apartment.findById", query = "SELECT a FROM Apartment a WHERE a.id = :id"),
     @NamedQuery(name = "Apartment.findByApartmentNumber", query = "SELECT a FROM Apartment a WHERE a.apartmentNumber = :apartmentNumber"),
-    @NamedQuery(name = "Apartment.findByBlock", query = "SELECT a FROM Apartment a WHERE a.block = :block"),
     @NamedQuery(name = "Apartment.findByStatus", query = "SELECT a FROM Apartment a WHERE a.status = :status")})
 public class Apartment implements Serializable {
 
@@ -51,11 +50,6 @@ public class Apartment implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "block")
-    private String block;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
     @Column(name = "status")
     private String status;
     @OneToOne(mappedBy = "apartmentId")
@@ -70,10 +64,9 @@ public class Apartment implements Serializable {
         this.id = id;
     }
 
-    public Apartment(Integer id, String apartmentNumber, String block, String status) {
+    public Apartment(Integer id, String apartmentNumber, String status) {
         this.id = id;
         this.apartmentNumber = apartmentNumber;
-        this.block = block;
         this.status = status;
     }
 
@@ -91,14 +84,6 @@ public class Apartment implements Serializable {
 
     public void setApartmentNumber(String apartmentNumber) {
         this.apartmentNumber = apartmentNumber;
-    }
-
-    public String getBlock() {
-        return block;
-    }
-
-    public void setBlock(String block) {
-        this.block = block;
     }
 
     public String getStatus() {

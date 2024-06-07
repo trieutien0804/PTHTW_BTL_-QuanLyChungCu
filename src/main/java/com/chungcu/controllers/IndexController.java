@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,14 +26,15 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  * @author tien
  */
+@CrossOrigin()
 @Controller
 @ControllerAdvice
 public class IndexController {
-
+    
     @Autowired
     private ApartmentService apartmentService;
     
-
+    
     @RequestMapping("/")
     public String index(Model model) {
         model.addAttribute("apartments", apartmentService.getApartments());

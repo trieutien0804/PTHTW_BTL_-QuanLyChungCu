@@ -7,7 +7,7 @@ import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.9.v20210604-rNA", date="2024-05-28T17:14:44")
+@Generated(value="EclipseLink-2.7.9.v20210604-rNA", date="2024-06-07T13:59:31")
 @StaticMetamodel(Locker.class)
 public class Locker_ { 
 
