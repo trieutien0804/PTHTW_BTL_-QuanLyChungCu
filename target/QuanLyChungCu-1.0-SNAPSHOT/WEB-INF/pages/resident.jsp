@@ -9,3 +9,4 @@
 <div>
     <a href="<c:url value="/admin/addResident"/>" type="button" class= "btn btn-primary mt-1">Thêm cư dân</a>
 </div>
+${resident}
