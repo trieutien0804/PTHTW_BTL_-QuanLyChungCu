@@ -5,6 +5,7 @@
 package com.chungcu.repositories;
 
 import com.chungcu.pojo.Surveyquestion;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,5 @@ import com.chungcu.pojo.Surveyquestion;
  */
 public interface SurveyquestionRepository {
     boolean addSurveyQuestion(Surveyquestion question);
+    List<Surveyquestion> getAllSurveyQuestionById(int surveyId); 
 }

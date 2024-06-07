@@ -14,4 +14,6 @@ import java.util.List;
 public interface SurveyRepository {
     List<Survey> getSurveys();
     boolean addSurvey(Survey survey);
+    Survey getSurveyById(int id);
+    boolean deleteSurvey(int id);
 }

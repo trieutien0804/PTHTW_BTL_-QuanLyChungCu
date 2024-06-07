@@ -39,9 +39,10 @@
                     <td>${s.description}</td>
                     <td>${s.createdAt}</td>
                     <td>
-                        <a href="#" class="btn btn-primary">Cập nhật</a>
-                        <button type="button" class="btn btn-danger">Xóa</button>
+                        <a type="button" href="<c:url value="/admin/surveyQuestion/${s.id}"/>" class="btn btn-primary">Chi tiết</a>
+                        <a type="button" class="btn btn-danger" href="<c:url value='/admin/deleteSurvey/${s.id}'/>">Xoa</a>
                     </td>
+                    
                 </tr>
             </c:forEach>
         </tbody>

@@ -5,7 +5,6 @@
 package com.chungcu.services;
 
 import com.chungcu.pojo.Survey;
-import com.chungcu.pojo.Surveyquestion;
 import java.util.List;
 
 /**
@@ -13,6 +12,12 @@ import java.util.List;
  * @author tien
  */
 public interface SurveySevice {
+
     List<Survey> getSurveys();
+
     boolean addSurvey(Survey survey);
+
+    Survey getSurveyById(int id);
+
+    boolean deleteSurvey(int id);
 }

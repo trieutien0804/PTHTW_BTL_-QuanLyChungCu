@@ -45,4 +45,23 @@ public class SurveyRepositoryImpl implements SurveyRepository {
         }
     }
 
+    @Override
+    public Survey getSurveyById(int id) {
+        Session s = this.factory.getObject().getCurrentSession();
+        return s.get(Survey.class, id);
+    }
+
+    @Override
+    public boolean deleteSurvey(int id) {
+        try {
+            Session s = this.factory.getObject().getCurrentSession();
+            Survey survey = this.getSurveyById(id);
+            s.delete(survey);
+            return true;
+        } catch (HibernateException ex) {
+            System.err.print(ex.getMessage());
+            return false;
+        }
+    }
+
 }
