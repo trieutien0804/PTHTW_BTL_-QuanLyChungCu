@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
                 }
             }
         } catch (HibernateException ex) {
-            System.err.print(ex.getMessage());  
+            System.err.print(ex.getMessage());
             return false;
         }
 
@@ -101,23 +101,15 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
-//    @Override
-//    public boolean authUser(String username, String password) {
-//        return this.userRepo.authUser(username, password);
-//    }
-//    @Override
-//    public User getUserByUsername(String username) {
-//        return this.userRepo.getUserByUsername(username);
-//    }
 
     @Override
-    public boolean authUser(String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public User getUserByUsername(String username) {
+        return this.userRepo.getUserByUsername(username);
     }
 
     @Override
-    public User getUserByUsername(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean authUser(String username, String password) {
+        return this.userRepo.authUser(username, password);
     }
 
 }

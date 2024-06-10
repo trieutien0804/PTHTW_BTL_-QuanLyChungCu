@@ -24,7 +24,7 @@ public class UserController {
     private UserService userDetailsService; 
 
 
-    @PreAuthorize("isAuthenticated()")
+    //@PreAuthorize("isAuthenticated()")
     @RequestMapping("/loginsuccess")
     public String loginSuccess() {
         User user = userDetailsService.getLoggedInUser();

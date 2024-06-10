@@ -4,6 +4,7 @@
  */
 package com.chungcu.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -66,6 +67,7 @@ public class User implements Serializable {
     @Column(name = "avatar")
     private String avatar;
     @OneToOne(mappedBy = "userId")
+    @JsonIgnore
     private Resident resident;
 
     public User() {
