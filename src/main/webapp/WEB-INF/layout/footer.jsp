@@ -5,7 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="mt-4 p-5 bg-dark text-white rounded">
-    <h1>Chung cư &copy; 2024</h1>
-  <p>Khoa CNTT, Đại học Mở TP.HCM</p>
+<div class="p-5 text-white" style="background-color: #0C2249; font-family: Lato, sans-serif;">
+    <div class="container" style="color: #FFC107">
+        <h1>Chung cư &copy; 2024</h1>
+        <p>Khoa CNTT, Đại học Mở TP.HCM</p>
+    </div>
 </div>
+        

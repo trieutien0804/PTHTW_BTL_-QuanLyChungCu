@@ -1,0 +1,27 @@
+.content-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.border-end {
+  border-right-color: #007bff; /* Màu xanh dương */
+}
+.btn-navy{
+    color: #fff;
+    background-color: #0C2249;
+    border-color: #0C2249;
+}
+.btn-outline-success {
+    color: #FFC107;
+    border-color: #FFC107;
+}
+.rounded-pill.btn-yellow {
+    display: flex !important;
+    justify-content: center;
+    padding: .5rem !important;
+    width: 85px; /* Ví dụ: Đặt chiều rộng cố định là 200px */
+    color: #fff;
+    background-color: #FFC107;
+    border-color: #FFC107;
+    border-radius: 2rem;
+}

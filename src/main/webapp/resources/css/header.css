@@ -6,3 +6,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : Jun 7, 2024, 1:46:28 PM
     Author     : tien
 */
+/*container{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x)* .5);
+    padding-left: calc(var(--bs-gutter-x)* .5);
+    margin-right: auto;
+    margin-left: auto;
+}*/
+.navbar-header{
+    height: 50px;
+    width: 17%; 
+}
+.custom-navbar{
+    background-color: #0C2249;
+}
+.content-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.word-main{
+    font-size: x-large;
+    font-family: sans-serif;
+    color: #FFC107;
+    text-decoration: none;
+}
+.toggle-btn{
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+.container-small{
+    width: 100%;
+    padding-right: var(--bs-gutter-x, .75rem);
+    padding-left: var(--bs-gutter-x, .75rem);
+    margin-right: 20px;
+    margin-left: 20px;
+}

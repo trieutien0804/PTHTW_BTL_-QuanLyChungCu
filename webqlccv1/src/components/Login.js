@@ -1,14 +1,22 @@
 import { useState } from "react";
-import { Button, Container, Form, Nav} from "react-bootstrap";
+import { Button, Container, Form} from "react-bootstrap";
 
 const Login = () => {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+
+    const login = (evt) =>{
+        evt.preventDefaut();
+
+        const process = async () =>{
+            
+        }
+    }
     return <>
         <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <div style={{ display: 'flex',  flexDirection: 'column', width: '50%' }}>
                 <h1 className="text-center text-info">Đăng nhập</h1>
-                <Form>
+                <Form onClick={login}>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Tên đăng nhập</Form.Label>
                         <Form.Control value={username} onChange={e => setUsername(e.target.value)} type="email" placeholder="Nhập đăng nhập" />
@@ -23,7 +31,6 @@ const Login = () => {
                 </Form>
             </div>
         </Container>
-
     </>
 }
 export default Login;

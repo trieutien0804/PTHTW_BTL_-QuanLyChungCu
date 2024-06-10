@@ -9,6 +9,8 @@
         <put-attribute name="content" value="" />
         <put-attribute name="footer"
                        value="/WEB-INF/layout/footer.jsp" />
+        <put-attribute name="sidebar"
+                       value="/WEB-INF/layout/sidebar.jsp" />
     </definition>
     <definition name="login" template="/WEB-INF/pages/login.jsp">
     </definition>
