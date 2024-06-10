@@ -5,6 +5,7 @@
 package com.chungcu.repositories;
 
 import com.chungcu.pojo.Resident;
+import java.util.List;
 
 
 /**
@@ -13,4 +14,5 @@ import com.chungcu.pojo.Resident;
  */
 public interface ResidentRepository {
     int addResident(Resident resident);
+    List<Resident> getAllResident();
 }

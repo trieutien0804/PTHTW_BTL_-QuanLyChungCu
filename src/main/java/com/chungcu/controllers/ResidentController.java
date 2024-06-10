@@ -9,6 +9,7 @@ import com.chungcu.pojo.Locker;
 import com.chungcu.pojo.Resident;
 import com.chungcu.pojo.User;
 import com.chungcu.services.ApartmentService;
+import com.chungcu.services.ResidentService;
 import com.chungcu.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -32,10 +33,13 @@ public class ResidentController {
     private ApartmentService apartmentService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private ResidentService residentService;
 
     @GetMapping("/resident")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String residentView(Model model) {
+        model.addAttribute("resident", this.residentService.getAllResident());
         return "resident";
     }
 

@@ -18,8 +18,6 @@ public interface UserService extends UserDetailsService{
     boolean addUser(User user, Locker locker, Resident resident);
     List<User> getUsers(String username);
     User getLoggedInUser();
-
     boolean authUser(String username, String password);
-
     User getUserByUsername(String name);
 }

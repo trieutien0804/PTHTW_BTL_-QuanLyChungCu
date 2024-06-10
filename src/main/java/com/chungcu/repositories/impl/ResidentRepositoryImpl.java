@@ -6,6 +6,8 @@ package com.chungcu.repositories.impl;
 
 import com.chungcu.pojo.Resident;
 import com.chungcu.repositories.ResidentRepository;
+import java.util.List;
+import javax.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +36,12 @@ public class ResidentRepositoryImpl implements ResidentRepository {
             System.err.print(ex.getMessage());
             return 0;
         }
+    }
+
+    @Override
+    public List<Resident> getAllResident() {
+        Session session = this.factory.getObject().getCurrentSession();
+        Query q = session.createQuery("FROM Resident");
+        return q.getResultList();
     }
 }

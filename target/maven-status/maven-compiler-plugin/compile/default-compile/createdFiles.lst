@@ -1,5 +1,6 @@
 com\chungcu\pojo\User.class
 com\chungcu\repositories\SurveyRepository.class
+com\chungcu\filters\RestAuthenticationEntryPoint.class
 com\chungcu\pojo\Parkingcard.class
 com\chungcu\controllers\UserController.class
 com\chungcu\formatters\SurveyFormatter.class
@@ -18,16 +19,20 @@ com\chungcu\repositories\impl\ResidentRepositoryImpl.class
 com\chungcu\pojo\Surveyanswer.class
 com\chungcu\configs\TilesConfig.class
 com\chungcu\pojo\Apartment_.class
+com\chungcu\configs\JwtSecurityConfig.class
 com\chungcu\services\UserService.class
 com\chungcu\pojo\Locker_.class
 com\chungcu\pojo\Surveyanswer_.class
 com\chungcu\configs\HibernateConfig.class
+com\chungcu\controllers\ApiUserController.class
 com\chungcu\controllers\ResidentController.class
 com\chungcu\pojo\Surveyquestion.class
 com\chungcu\pojo\Apartment.class
 com\chungcu\pojo\Bill.class
 com\chungcu\controllers\ApartmentController.class
+com\chungcu\filters\CustomAccessDeniedHandler.class
 com\chungcu\services\ApartmentService.class
+com\chungcu\filters\JwtAuthenticationTokenFilter.class
 com\chungcu\repositories\impl\UserRepositoryImpl.class
 com\chungcu\repositories\impl\LockerRepositoryImpl.class
 com\chungcu\pojo\Survey_.class
@@ -40,6 +45,7 @@ com\chungcu\dto\DTOAddResident.class
 com\chungcu\repositories\ApartmentRepository.class
 com\chungcu\services\impl\ApartmentServiceImpl.class
 com\chungcu\services\SurveySevice.class
+com\chungcu\services\ResidentService.class
 com\chungcu\pojo\Familymember.class
 com\chungcu\repositories\SurveyquestionRepository.class
 com\chungcu\pojo\Order1_.class
@@ -54,7 +60,9 @@ com\chungcu\repositories\impl\SurveyquestionRepositoryImpl.class
 com\chungcu\pojo\Feedback_.class
 com\chungcu\formatters\ApartmentFormatter.class
 com\chungcu\repositories\ResidentRepository.class
+com\chungcu\services\impl\ResidentServiceImpl.class
 com\chungcu\dto\DTOAddSurvey.class
 com\chungcu\pojo\Resident_.class
 com\chungcu\repositories\UserRepositories.class
 com\chungcu\repositories\impl\ApartmentRepositoryImpl.class
+com\chungcu\components\JwtService.class

@@ -92,5 +92,5 @@
             $('.sidebar').removeClass('active');
 
         });
-});
+    });
 </script>
