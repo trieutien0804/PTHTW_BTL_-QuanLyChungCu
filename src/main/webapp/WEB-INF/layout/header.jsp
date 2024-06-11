@@ -14,7 +14,10 @@
             <img src="<c:url value="/images/menu.png"/>" alt="Avatar" class="ms-2">   
         </div>
         <div class="navbar-header content-center me-auto">
-            <a class="word-main"  href="">T&D Building Admin</a>
+            <div class>
+<!--                <img src="<c:url value="/images/logo.png"/>" alt="Avatar" class="rounded-circle me-2 ms-2">-->
+            </div>
+            <a class="navbar-brand text-main"  href="">T&D Building Admin</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right me-3">
@@ -25,7 +28,7 @@
             </c:if>
             <c:if test="${pageContext.request.userPrincipal.name != null}">
                 <li class="content-center me-auto">
-                    <a class="navbar-brand text-warning" href="#">Xin chào ${pageContext.request.userPrincipal.name}</a>
+                    <a class="navbar-brand text-main" href="#">Xin chào ${pageContext.request.userPrincipal.name}</a>
 
                 </li>
                 <li class="content-center me-auto">

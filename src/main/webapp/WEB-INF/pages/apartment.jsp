@@ -11,7 +11,7 @@
 <section class="container pt-3">
     <div class="bg-white w-100 border-bottom ">
         <div class="d-flex justify-content-between p-3">
-            
+
             <form class="d-flex ">
                 <input class="form-control me-2 rounded-pill" type="search" placeholder="Nhập số căn hộ" aria-label="Search">
                 <div class="rounded-pill btn-yellow">
@@ -38,7 +38,7 @@
                         <td class="border-end align-content-center">${a.apartmentNumber}</td>
                         <td class="border-end align-content-center">${a.status}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-navy rounded-pill">Cập nhật</a>
+                            <button href="#" class="btn btn-navy up rounded-pill">Cập nhật</button>
                             <button type="button" class="btn btn-danger rounded-pill">Xóa</button>
                         </td>
                     </tr>
@@ -50,7 +50,7 @@
         <div class="modal-dialog ">
             <div class="modal-content rounded">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="updateModalLabel">Cập nhật căn hộ</h5>
+                    <h5 class="modal-title fw-bold" id="updateModalLabel">Cập nhật căn hộ</h5>
                     <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -70,10 +70,38 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="addApartmentModal" tabindex="-1" aria-labelledby="addApartmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+
+<!--    <div class="modal fade" id="addApartmentModal" tabindex="-1" aria-labelledby="addApartmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center fw-bold" id="addApartmentModalLabel">Thêm căn hộ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addApartmentForm">
+                        <div class="mb-3">
+                            <label for="newApartmentNumber" class="form-label">Số căn hộ</label>
+                            <input type="text" class="form-control" id="newApartmentNumber" name="newApartmentNumber" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary rounded-pill float-end">Thêm</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>-->
 </section>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const updateButtons = document.querySelectorAll('.btn-navy'); // Lấy tất cả các nút "Cập nhật"
+        const updateButtons = document.querySelectorAll('.btn-navy.up'); // Lấy tất cả các nút "Cập nhật"
         const updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
         const updateForm = document.getElementById('updateForm');
 
@@ -100,6 +128,23 @@
             // ... Sau khi cập nhật thành công, bạn có thể ẩn modal:
             updateModal.hide();
             // Cập nhật lại dữ liệu trong bảng
+        });
+        const addApartmentButton = document.querySelector('.btn-navy'); // Lấy nút "Thêm căn hộ"
+        const addApartmentModal = new bootstrap.Modal(document.getElementById('addApartmentModal'));
+        const addApartmentForm = document.getElementById('addApartmentForm');
+
+        addApartmentButton.addEventListener('click', () => {
+            addApartmentModal.show(); // Hiển thị popup khi click nút
+        });
+
+        addApartmentForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const newApartmentNumber = addApartmentForm.newApartmentNumber.value;
+            // Gửi dữ liệu newApartmentNumber đến server để xử lý (bạn cần viết phần này ở backend)
+            // ...
+            // Sau khi thêm thành công, bạn có thể ẩn modal và cập nhật bảng:
+            // addApartmentModal.hide();
+            // // Cập nhật bảng (ví dụ: thêm một dòng mới vào bảng với số căn hộ vừa thêm)
         });
     });
 </script>

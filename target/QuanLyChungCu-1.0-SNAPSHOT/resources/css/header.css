@@ -20,7 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     width: 17%; 
 }
 .custom-navbar{
-    background-color: #0C2249;
+    background-color: #104358;
 }
 .content-center{
     display: flex;
@@ -28,9 +28,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     align-items: center;
 }
 .word-main{
-    font-size: x-large;
+    font-size: 20px;
     font-family: sans-serif;
-    color: #FFC107;
+    color: #BE9369;
     text-decoration: none;
 }
 .toggle-btn{
@@ -45,4 +45,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     padding-left: var(--bs-gutter-x, .75rem);
     margin-right: 20px;
     margin-left: 20px;
+}
+.text-main{
+    color: #BE9369
+}
+.navbar-brand.text-main{
+    margin-left: 1rem;
 }
