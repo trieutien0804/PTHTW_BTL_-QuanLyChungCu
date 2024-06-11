@@ -41,7 +41,6 @@ public class ApartmentController {
     }
 
     @GetMapping("/addApartment")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addApartmentView(Model model) {
         model.addAttribute("apartment", new Apartment());
         return "addApartment";

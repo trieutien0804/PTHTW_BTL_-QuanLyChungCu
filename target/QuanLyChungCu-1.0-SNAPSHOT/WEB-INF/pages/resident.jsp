@@ -37,8 +37,7 @@
                     <th scope="col" class="text-center ">Chức năng</th>
                 </tr>
             </thead>
-            <tbody >
-                
+            <tbody >     
                     <tr class="border-bottom">
                         <td class="border-end align-content-center">1</td>
                         <td class="border-end align-content-center">Tiến Dũng</td>

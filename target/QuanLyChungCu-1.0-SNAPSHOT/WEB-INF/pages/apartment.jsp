@@ -11,14 +11,14 @@
 <section class="container pt-3">
     <div class="bg-white w-100 border-bottom ">
         <div class="d-flex justify-content-between p-3">
-            
+
             <form class="d-flex ">
                 <input class="form-control me-2 rounded-pill" type="search" placeholder="Nhập số căn hộ" aria-label="Search">
                 <div class="rounded-pill btn-yellow">
                     <img src="<c:url value="/images/search.png"/>" alt="Avatar" class="">   
                 </div>
             </form>
-            <a href="<c:url value="/admin/addApartment"/>" type="button" class= "btn btn-navy rounded-pill">Thêm căn hộ</a>
+            <a href="<c:url value="/admin/addApartment"/>" type="button" class= "btn btn-navy up rounded-pill">Thêm căn hộ</a>
         </div>
     </div>
     <div class="bg-white">
