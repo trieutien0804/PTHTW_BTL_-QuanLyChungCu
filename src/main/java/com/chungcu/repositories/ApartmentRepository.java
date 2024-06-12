@@ -6,13 +6,17 @@ package com.chungcu.repositories;
 
 import com.chungcu.pojo.Apartment;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author tien
  */
 public interface ApartmentRepository {
-    List<Apartment> getApartments();
+    List<Apartment> getApartments(Map<String, String> params);
     boolean addOrUpdateApartment(Apartment apartment);
     List<Apartment> findAllApartmentsWithStatus();
+    boolean deleteApartment(int apartmentId);
+    Apartment getApartmentById(int id);
+    int countApartment(Map<String, String> params);
 }
