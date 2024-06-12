@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import Apis, { endpoints } from "../configs/Apis";
+import Apis, { authApi, endpoints } from "../configs/Apis";
+import cookie from "react-cookies";
 
 const Login = () => {
     const [username, setUsername] = useState();
@@ -14,7 +15,11 @@ const Login = () => {
                         "username": username,
                         "password": password
                 });
-                console.info(res.data);
+                cookie.save("token", res.data);
+
+                let {data} = await authApi().get(endpoints['current-user']);
+                cookie.save("user", data)
+                console.info(data);
             } catch (err) {
                 console.error(err);
             }
