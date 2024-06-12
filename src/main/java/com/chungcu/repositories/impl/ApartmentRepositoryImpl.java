@@ -63,7 +63,6 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
         CriteriaQuery<Apartment> query = cb.createQuery(Apartment.class);
         Root<Apartment> root = query.from(Apartment.class);
 
-        // Subquery để đếm số lượng cư dân đang hoạt động trong căn hộ
         Subquery<Long> subquery = query.subquery(Long.class);
         Root<Resident> subRoot = subquery.from(Resident.class);
         subquery.select(cb.count(subRoot));

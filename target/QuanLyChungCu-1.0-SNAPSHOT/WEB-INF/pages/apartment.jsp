@@ -122,29 +122,29 @@
             });
         });
 
-        updateForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            // Gửi dữ liệu form đến server để cập nhật (bạn cần xử lý phần này)
-            // ... Sau khi cập nhật thành công, bạn có thể ẩn modal:
-            updateModal.hide();
-            // Cập nhật lại dữ liệu trong bảng
-        });
-        const addApartmentButton = document.querySelector('.btn-navy'); // Lấy nút "Thêm căn hộ"
-        const addApartmentModal = new bootstrap.Modal(document.getElementById('addApartmentModal'));
-        const addApartmentForm = document.getElementById('addApartmentForm');
-
-        addApartmentButton.addEventListener('click', () => {
-            addApartmentModal.show(); // Hiển thị popup khi click nút
-        });
-
-        addApartmentForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const newApartmentNumber = addApartmentForm.newApartmentNumber.value;
-            // Gửi dữ liệu newApartmentNumber đến server để xử lý (bạn cần viết phần này ở backend)
-            // ...
-            // Sau khi thêm thành công, bạn có thể ẩn modal và cập nhật bảng:
-            // addApartmentModal.hide();
-            // // Cập nhật bảng (ví dụ: thêm một dòng mới vào bảng với số căn hộ vừa thêm)
-        });
+//        updateForm.addEventListener('submit', (event) => {
+//            event.preventDefault();
+//            // Gửi dữ liệu form đến server để cập nhật (bạn cần xử lý phần này)
+//            // ... Sau khi cập nhật thành công, bạn có thể ẩn modal:
+//            updateModal.hide();
+//            // Cập nhật lại dữ liệu trong bảng
+//        });
+//        const addApartmentButton = document.querySelector('.btn-navy'); // Lấy nút "Thêm căn hộ"
+//        const addApartmentModal = new bootstrap.Modal(document.getElementById('addApartmentModal'));
+//        const addApartmentForm = document.getElementById('addApartmentForm');
+//
+//        addApartmentButton.addEventListener('click', () => {
+//            addApartmentModal.show(); // Hiển thị popup khi click nút
+//        });
+//
+//        addApartmentForm.addEventListener('submit', (event) => {
+//            event.preventDefault();
+//            const newApartmentNumber = addApartmentForm.newApartmentNumber.value;
+//            // Gửi dữ liệu newApartmentNumber đến server để xử lý (bạn cần viết phần này ở backend)
+//            // ...
+//            // Sau khi thêm thành công, bạn có thể ẩn modal và cập nhật bảng:
+//            // addApartmentModal.hide();
+//            // // Cập nhật bảng (ví dụ: thêm một dòng mới vào bảng với số căn hộ vừa thêm)
+//        });
     });
 </script>

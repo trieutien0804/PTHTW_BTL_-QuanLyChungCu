@@ -12,7 +12,7 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto" style={{ color: 'white' }}>
-                    <Link className="me-3" to= "/">Trang chủ</Link>
+                    <Link className="nav-link me-3" to= "/">Trang chủ</Link>
                     <Nav.Link href="#link">Tủ đồ</Nav.Link>
                     <Nav.Link href="#link">Phản hồi</Nav.Link>
                     <Nav.Link href="#link">Khảo sát</Nav.Link>
@@ -36,7 +36,7 @@ const Header = () => {
                     </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
-                <Link variant="outline-primary" className="me-2" to="/login">Đăng nhập</Link> 
+                <Link variant="outline-secondary" className="nav-link me-2 text-white" to="/login">Đăng nhập</Link> 
 
             </Navbar.Collapse>
         </Container>

@@ -46,10 +46,7 @@ public class ResidentController {
     @GetMapping("/addResident")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addResidentView(Model model) {
-//        model.addAttribute("user", new User());
-//        model.addAttribute("resident", new Resident());
-//        model.addAttribute("locker", new Locker());
-
+        
         DTOAddResident addResident = new DTOAddResident();
         addResident.setUser(new User());
         addResident.setResident(new Resident());

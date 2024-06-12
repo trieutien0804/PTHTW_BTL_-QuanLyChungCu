@@ -17,7 +17,6 @@
                     <img src="<c:url value="/images/search.png"/>" alt="Avatar" class="">   
                 </div>
             </form>
-            <a href="<c:url value="/admin/addApartment"/>" type="button" class= "btn btn-navy rounded-pill">Thêm khảo sát</a>
         </div>
     </div>
     <div class="bg-white">
@@ -121,7 +120,7 @@
 </section>-->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const updateButtons = document.querySelectorAll('.btn-navy'); // Lấy tất cả các nút "Cập nhật"
+        const updateButtons = document.querySelectorAll('.btn-navy');
         const updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
         const updateForm = document.getElementById('updateForm');
 
