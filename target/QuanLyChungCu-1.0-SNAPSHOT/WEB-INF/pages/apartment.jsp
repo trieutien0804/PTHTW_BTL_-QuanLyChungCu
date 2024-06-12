@@ -35,14 +35,9 @@
                     <tr class="border-bottom">
                         <td class="border-end align-content-center">${a.id}</td>
                         <td class="border-end align-content-center">${a.apartmentNumber}</td>
-                        <td class="text-center">
-                            <!--<<<<<<< HEAD-->
-                            <button href=""<c:url value="/admin/addApartment/${a.id}" />" class="btn btn-navy up rounded-pill">Cập nhật</button>
-                            <button type="button" class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteApartment/${a.id}'/>">Xóa</button>
-                            <!--=======
-                                                        <a href="<c:url value="/admin/addApartment/${a.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>
-                                                        <a type="button" class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteApartment/${a.id}'/>">Xóa</a>
-                            >>>>>>> 1fb1f15882dcae34c3e8648d1b32989cc2ff4d7f-->
+                        <td class="text-center">   
+                            <a href="<c:url value="/admin/addApartment/${a.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>
+                            <a type="button" class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteApartment/${a.id}'/>">Xóa</a>
                         </td>
                     </tr>
                 </c:forEach>
