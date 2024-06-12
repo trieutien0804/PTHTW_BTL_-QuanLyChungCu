@@ -5,10 +5,17 @@ import Footer from "./layout/Footer";
 import Home from "./components/Home";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "./components/Login";
+import { createContext, useReducer } from "react";
+import MyUserReducer from "./reducers/MyUserReducer";
+import cookie from "react-cookies";
+
+export const MyUserContext = createContext();
 
 const App = () => {
+  const [user, dispatch] = useReducer(MyUserReducer, cookie.load("user") || null);
+
   return(
-    <>
+    <MyUserContext.Provider value={[user, dispatch]}>
       <div className="d-flex flex-column min-vh-100">
         <BrowserRouter>
           <Header />
@@ -23,7 +30,7 @@ const App = () => {
           <Footer />
         </BrowserRouter>
       </div>
-    </>
+    </MyUserContext.Provider>
   )
 }
 export default App;

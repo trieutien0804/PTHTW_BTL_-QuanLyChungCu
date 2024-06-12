@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 
 import Apis, { authApi, endpoints } from "../configs/Apis";
 import cookie from "react-cookies";
+import { MyUserContext } from "../App";
+import { Navigate } from "react-router-dom";
 
 
 const Login = () => {
+    const [user, dispatch] = useContext(MyUserContext);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
@@ -18,19 +21,25 @@ const Login = () => {
                         "username": username,
                         "password": password
                 });
-
                 cookie.save("token", res.data);
-
                 let {data} = await authApi().get(endpoints['current-user']);
                 cookie.save("user", data)
+                
 
-                console.info(data);
+                dispatch({
+                    "type": "login",
+                    "payload": data
+                });
             } catch (err) {
                 console.error(err);
             }
         }
         process();
     }
+
+    if(user !== null)
+        return <Navigate to="/" />
+
     return <>
         <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div style={{ display: 'flex', flexDirection: 'column', width: '50%' }}>

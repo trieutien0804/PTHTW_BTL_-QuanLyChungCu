@@ -27,7 +27,7 @@
         </div>
     </div>
 
-
+<!-- 
     <h1 class="text-center text-info mt-1">Thêm căn hộ</h1>
     <c:url value="/admin/addApartment" var="action" />
     <form:form method="post" action="${action}" modelAttribute="apartment">
@@ -44,6 +44,6 @@
             </button>
             <form:hidden path="id" />
         </div>
-    </form:form>
+    </form:form>comment -->
 
 </section>
