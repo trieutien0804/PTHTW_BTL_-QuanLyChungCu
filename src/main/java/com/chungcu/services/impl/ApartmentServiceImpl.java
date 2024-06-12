@@ -25,8 +25,8 @@ public class ApartmentServiceImpl implements ApartmentService {
     private ApartmentRepository apartmentRepo;
 
     @Override
-    public List<Apartment> getApartments() {
-        return this.apartmentRepo.getApartments();
+    public List<Apartment> getApartments(Map<String, String> params) {
+        return this.apartmentRepo.getApartments(params);
     }
 
     @Override
@@ -47,4 +47,10 @@ public class ApartmentServiceImpl implements ApartmentService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public boolean deleteApartment(int apartmentId) {
+        return this.apartmentRepo.deleteApartment(apartmentId);
+    }
+    
+    
 }
