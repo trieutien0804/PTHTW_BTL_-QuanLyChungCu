@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-between p-3">
             <c:url value="/admin/apartment" var="action"/>
             <form class="d-flex" action="${action}">
-                <input class="form-control me-2 rounded-pill" type="text" name="kw" placeholder="Nhập số căn hộ" aria-label="Search">
+                <input class="form-control me-2 rounded-pill" type="text" name="kw" value="${keyword}" placeholder="Nhập số căn hộ" aria-label="Search">
                 <button type="submit" class="rounded-pill btn-yellow">
                     <img src="<c:url value="/images/search.png"/>" alt="Avatar" class="">   
                 </button>
@@ -36,7 +36,7 @@
                         <td class="border-end align-content-center">${a.id}</td>
                         <td class="border-end align-content-center">${a.apartmentNumber}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-navy rounded-pill">Cập nhật</a>
+                            <a href="<c:url value="/admin/addApartment/${a.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>
                             <a type="button" class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteApartment/${a.id}'/>">Xóa</a>
                         </td>
                     </tr>
@@ -45,15 +45,14 @@
         </table>
         <ul class="pagination ms-2">
             <c:forEach begin="1" end="${counter}" var="i">
-                <c:url value="/admin/apartment" var="pageAction">
+                <c:url value="${currentUrl}" var="pageAction">
+                    <c:param name="kw" value="${param.kw}" /> 
                     <c:param name="page" value="${i}" />
                 </c:url>
                 <li class="page-item">
                     <a class="page-link" href="${pageAction}">${i}</a>
                 </li>
             </c:forEach>
-
-
         </ul>
     </div>
 </div>

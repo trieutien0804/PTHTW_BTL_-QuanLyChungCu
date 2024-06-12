@@ -51,6 +51,16 @@ public class ApartmentServiceImpl implements ApartmentService {
     public boolean deleteApartment(int apartmentId) {
         return this.apartmentRepo.deleteApartment(apartmentId);
     }
+
+    @Override
+    public Apartment getApartmentById(int id) {
+        return this.apartmentRepo.getApartmentById(id);
+    }
+
+    @Override
+    public int countApartment(Map<String, String> params) {
+        return this.apartmentRepo.countApartment(params);
+    }
     
     
 }

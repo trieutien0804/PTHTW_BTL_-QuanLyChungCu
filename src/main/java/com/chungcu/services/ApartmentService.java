@@ -18,4 +18,6 @@ public interface ApartmentService {
     List<Apartment> findAllApartmentsWithStatus();
     List<Apartment> findAvailableApartments();
     boolean deleteApartment(int apartmentId);
+    Apartment getApartmentById(int id);
+    int countApartment(Map<String, String> params);
 }

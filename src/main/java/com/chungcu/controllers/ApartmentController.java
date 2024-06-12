@@ -33,7 +33,7 @@ public class ApartmentController {
 
     @Autowired
     private ApartmentService apartmentService;
-    
+
     @Autowired
     private Environment env;
 
@@ -43,13 +43,15 @@ public class ApartmentController {
 //        model.addAttribute("apartments", apartmentService.getApartments());
 //        return "apartment";
 //    }
-    
     @GetMapping("/apartment")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String createView(Model model, @RequestParam Map<String, String> params) {
         int pagesize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
         List<Apartment> apartments = apartmentService.getApartments(params);
-        model.addAttribute("counter", Math.ceil((apartments.size())*1.0/pagesize));
+        int counter = apartmentService.countApartment(params);
+        String kw = params.get("kw");
+        model.addAttribute("keyword", kw);
+        model.addAttribute("counter", Math.ceil((counter) * 1.0 / pagesize));
         model.addAttribute("apartments", apartments);
         return "apartment";
     }
@@ -63,16 +65,23 @@ public class ApartmentController {
     @PostMapping("/addApartment")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addApartment(@ModelAttribute(value = "apartment") Apartment apartment) {
-        if (apartmentService.addOrUpdateApartment(apartment) == true)
+        if (apartmentService.addOrUpdateApartment(apartment) == true) {
             return "redirect:/admin/apartment";
+        }
         return "addApartment";
     }
-    
+
+    @GetMapping("/addApartment/{id}")
+    public String updateView(Model model, @PathVariable(value = "id") int id) {
+        model.addAttribute("apartment", this.apartmentService.getApartmentById(id));
+        return "addApartment";
+    }
+
     @GetMapping("deleteApartment/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteSurvey(@PathVariable(value = "id") int apartmentId, Model model) {
         model.addAttribute("apartment", new Apartment(apartmentId));
-        return "deleteApartment";   
+        return "deleteApartment";
     }
 
     @PostMapping("deleteApartment")

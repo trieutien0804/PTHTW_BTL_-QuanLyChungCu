@@ -17,9 +17,13 @@
         <form:input class="form-control"  id="apartmentNumber"  placeholder="Số căn hộ" path="apartmentNumber" />
         <label for="name">Số căn hộ</label>
     </div>
-    <div class="form-floating">
+        <div class="form-floating">
         <button class="btn btn-info mt-1" type="submit">
-            Thêm sản phẩm
+            <c:choose>
+                <c:when test="${apartment.id > 0}"> Cập nhât</c:when>
+                <c:otherwise> Thêm căn hộ</c:otherwise>
+            </c:choose>
         </button>
+        <form:hidden path="id" />
     </div>
 </form:form>

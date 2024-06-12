@@ -61,12 +61,16 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
         Query query = session.createQuery(q);
 
         String p = params.get("page");
+        int page = 1;
         if (p != null && !p.isEmpty()) {
-            int pagesize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
-            int start = ((Integer.parseInt(p) - 1) * pagesize);
-            query.setFirstResult(start);
-            query.setMaxResults(pagesize);
+            page = Integer.parseInt(p);
         }
+
+        int pagesize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
+        //int start = ((Integer.parseInt(p) - 1) * pagesize);
+        int start = ((page - 1) * pagesize);
+        query.setFirstResult(start);
+        query.setMaxResults(pagesize);
 
         List<Apartment> apartments = query.getResultList();
 
@@ -135,4 +139,28 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
         }
     }
 
+    @Override
+    public int countApartment(Map<String, String> params) {
+        Session session = this.factory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Apartment> q = builder.createQuery(Apartment.class);
+        Root root = q.from(Apartment.class);
+        q.select(root);
+
+        List<Predicate> predicates = new ArrayList<>();
+
+        String kw = params.get("kw");
+        if (kw != null && !kw.isEmpty()) {
+            predicates.add(builder.like(root.get("apartmentNumber"), String.format("%%%s%%", kw)));
+        }
+
+        q.where(predicates.toArray(Predicate[]::new));
+        q.orderBy(builder.desc(root.get("id")));
+
+        Query query = session.createQuery(q);
+
+        List<Apartment> apartments = query.getResultList();
+
+        return apartments.size();
+    }
 }

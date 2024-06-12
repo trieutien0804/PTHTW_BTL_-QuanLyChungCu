@@ -18,4 +18,5 @@ public interface ApartmentRepository {
     List<Apartment> findAllApartmentsWithStatus();
     boolean deleteApartment(int apartmentId);
     Apartment getApartmentById(int id);
+    int countApartment(Map<String, String> params);
 }
