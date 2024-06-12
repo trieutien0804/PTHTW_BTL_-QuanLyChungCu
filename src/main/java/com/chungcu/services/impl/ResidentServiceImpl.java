@@ -22,7 +22,7 @@ public class ResidentServiceImpl implements ResidentService{
     private ResidentRepository residentRepo;
     
     @Override
-    public List<Resident> getAllResident() {
+    public List<Object[]> getAllResident() {
         return this.residentRepo.getAllResident();
     }
     

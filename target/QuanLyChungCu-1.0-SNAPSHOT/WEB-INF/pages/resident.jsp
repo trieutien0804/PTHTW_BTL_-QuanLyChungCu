@@ -7,19 +7,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="<c:url value="/css/pages.css"/>" rel="stylesheet"/>
-
 <section class="container pt-3">
     <div class="bg-white w-100 border-bottom ">
         <div class="d-flex justify-content-between p-3">
-            
+
             <form class="d-flex ">
-                <input class="form-control me-2 rounded-pill" type="search" placeholder="Nhập số căn hộ" aria-label="Search">
+                <input class="form-control me-2 rounded-pill" type="search" placeholder="Nhập tên cư dân" aria-label="Search">
                 <div class="rounded-pill btn-yellow">
                     <img src="<c:url value="/images/search.png"/>" alt="Avatar" class="">   
                 </div>
             </form>
             <a href="<c:url value="/admin/addResident"/>" type="button" class= "btn btn-navy rounded-pill">Thêm cư dân</a>
-            
+
         </div>
     </div>
     <div class="bg-white">
@@ -29,7 +28,6 @@
                     <th scope="col" class="text-center border-end">ID</th>
                     <th scope="col" class="text-center border-end">Name</th>   
                     <th scope="col" class="text-center border-end">Username</th>
-                    <th scope="col" class="text-center border-end">Password</th>
                     <th scope="col" class="text-center border-end">Phone Number</th>
                     <th scope="col" class="text-center border-end">Email</th>
                     <th scope="col" class="text-center border-end">Căn hộ</th>
@@ -37,22 +35,22 @@
                     <th scope="col" class="text-center ">Chức năng</th>
                 </tr>
             </thead>
-            <tbody >     
+            <tbody >
+                <c:forEach items="${residentDetails}" var="row">
                     <tr class="border-bottom">
-                        <td class="border-end align-content-center">1</td>
-                        <td class="border-end align-content-center">Tiến Dũng</td>
-                        <td class="border-end align-content-center">tiendung1903</td>
-                        <td class="border-end align-content-center">12345</td>
-                        <td class="border-end align-content-center">0912345678</td>
-                        <td class="border-end align-content-center">tiendung@gmail.com</td>
-                        <td class="border-end align-content-center">102</td>
-                        <td class="border-end align-content-center">L102</td>
+                        <td class="border-end align-content-center">${row[0]}</td> 
+                        <td class="border-end align-content-center">${row[1]}</td>
+                        <td class="border-end align-content-center">${row[2]}</td>
+                        <td class="border-end align-content-center">${row[3]}</td>
+                        <td class="border-end align-content-center">${row[4]}</td>
+                        <td class="border-end align-content-center">${row[5]}</td>
+                        <td class="border-end align-content-center">${row[6]}</td>
                         <td class="text-center">
                             <a href="#" class="btn btn-navy rounded-pill">Cập nhật</a>
                             <button type="button" class="btn btn-danger rounded-pill">Xóa</button>
                         </td>
                     </tr>
-                
+                </c:forEach>
             </tbody>
         </table>
     </div>

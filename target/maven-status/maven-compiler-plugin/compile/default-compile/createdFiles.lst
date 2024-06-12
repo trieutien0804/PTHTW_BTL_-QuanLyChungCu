@@ -6,6 +6,7 @@ com\chungcu\controllers\UserController.class
 com\chungcu\formatters\SurveyFormatter.class
 com\chungcu\services\impl\SurveyquestionServiceImpl.class
 com\chungcu\pojo\Feedback.class
+com\chungcu\controllers\LockerController.class
 com\chungcu\configs\SecurityWebApplicationInitializer.class
 com\chungcu\pojo\Resident.class
 com\chungcu\repositories\LockerRepository.class
@@ -13,6 +14,7 @@ com\chungcu\pojo\Parkingcard_.class
 com\chungcu\pojo\Survey.class
 com\chungcu\services\impl\UserServiceImpl.class
 com\chungcu\repositories\impl\SurveyRepositoryImpl.class
+com\chungcu\services\LockerService.class
 com\chungcu\configs\DispatcherServeletInit.class
 com\chungcu\controllers\IndexController.class
 com\chungcu\repositories\impl\ResidentRepositoryImpl.class
@@ -42,6 +44,7 @@ com\chungcu\services\impl\SurveyServiceImpl.class
 com\chungcu\pojo\Bill_.class
 com\chungcu\pojo\Familymember_.class
 com\chungcu\dto\DTOAddResident.class
+com\chungcu\services\impl\LockerServiceImpl.class
 com\chungcu\repositories\ApartmentRepository.class
 com\chungcu\services\impl\ApartmentServiceImpl.class
 com\chungcu\services\SurveySevice.class
