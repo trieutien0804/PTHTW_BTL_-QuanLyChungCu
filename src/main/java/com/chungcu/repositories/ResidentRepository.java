@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface ResidentRepository {
     int addResident(Resident resident);
-    List<Resident> getAllResident();
+    List<Object[]> getAllResident();
 }

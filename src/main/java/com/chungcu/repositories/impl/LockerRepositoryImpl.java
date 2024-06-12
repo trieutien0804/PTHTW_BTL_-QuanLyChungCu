@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 import com.chungcu.repositories.LockerRepository;
+import java.util.List;
+import javax.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +21,8 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class LockerRepositoryImpl implements LockerRepository{
+public class LockerRepositoryImpl implements LockerRepository {
+
     @Autowired
     private LocalSessionFactoryBean factory;
 
@@ -34,5 +37,12 @@ public class LockerRepositoryImpl implements LockerRepository{
         }
         return false;
     }
-    
+
+    @Override
+    public List<Locker> getALlLocker() {
+        Session session = this.factory.getObject().getCurrentSession();
+        Query q = session.createQuery("FROM Locker");
+        return q.getResultList();
+    }
+
 }

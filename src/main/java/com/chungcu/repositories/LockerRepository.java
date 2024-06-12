@@ -5,6 +5,7 @@
 package com.chungcu.repositories;
 
 import com.chungcu.pojo.Locker;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,5 @@ import com.chungcu.pojo.Locker;
  */
 public interface LockerRepository {
     boolean addLocker(Locker locker);
+    List<Locker> getALlLocker();
 }

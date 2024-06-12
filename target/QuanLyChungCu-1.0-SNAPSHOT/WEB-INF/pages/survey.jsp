@@ -12,7 +12,7 @@
     <div class="bg-white w-100 border-bottom ">
         <div class="d-flex justify-content-between p-3">
             <form class="d-flex ">
-                <input class="form-control me-2 rounded-pill" type="search" placeholder="Nhập số căn hộ" aria-label="Search">
+                <input class="form-control me-2 rounded-pill" type="search" placeholder="Nhập tên khảo sát" aria-label="Search">
                 <div class="rounded-pill btn-yellow">
                     <img src="<c:url value="/images/search.png"/>" alt="Avatar" class="">   
                 </div>

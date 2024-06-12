@@ -12,5 +12,5 @@ import java.util.List;
  * @author tien
  */
 public interface ResidentService {
-    List<Resident> getAllResident();
+    List<Object[]> getAllResident();
 }

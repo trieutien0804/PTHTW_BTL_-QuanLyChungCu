@@ -39,7 +39,7 @@ public class ResidentController {
     @GetMapping("/resident")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String residentView(Model model) {
-        model.addAttribute("resident", this.residentService.getAllResident());
+        model.addAttribute("residentDetails", this.residentService.getAllResident());
         return "resident";
     }
 

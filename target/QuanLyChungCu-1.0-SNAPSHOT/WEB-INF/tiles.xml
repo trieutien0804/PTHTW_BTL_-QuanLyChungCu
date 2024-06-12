@@ -73,4 +73,14 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/surveyQuestion.jsp" />
     </definition>
+    <definition name="bill" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý hóa đơn | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/bill.jsp" />
+    </definition>
+    <definition name="feedback" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý đánh giá | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/feedback.jsp" />
+    </definition>
 </tiles-definitions>
