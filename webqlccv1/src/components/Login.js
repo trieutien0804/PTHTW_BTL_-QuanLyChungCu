@@ -37,9 +37,11 @@ const Login = () => {
         process();
     }
 
-    if(user !== null)
-        return <Navigate to="/" />
-
+    if(user !== null){
+        if(user.avatar !== null)
+            return <Navigate to="/" />
+        else return <Navigate to="/resident" />
+    }
     return <>
         <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div style={{ display: 'flex', flexDirection: 'column', width: '50%' }}>

@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import { createContext, useReducer } from "react";
 import MyUserReducer from "./reducers/MyUserReducer";
 import cookie from "react-cookies";
+import Resident from "./components/Resident";
 
 export const MyUserContext = createContext();
 
@@ -19,11 +20,12 @@ const App = () => {
       <div className="d-flex flex-column min-vh-100">
         <BrowserRouter>
           <Header />
-          <main className="flex-grow-1"> {/* Thêm class này để main chiếm hết không gian có thể */}
+          <main className="flex-grow-1"> 
             <Container>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/resident" element={<Resident />} />
               </Routes>
             </Container>
           </main>
