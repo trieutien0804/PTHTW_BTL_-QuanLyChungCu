@@ -4,10 +4,10 @@
  */
 package com.chungcu.services.impl;
 
-import com.chungcu.pojo.Resident;
 import com.chungcu.repositories.ResidentRepository;
 import com.chungcu.services.ResidentService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +22,13 @@ public class ResidentServiceImpl implements ResidentService{
     private ResidentRepository residentRepo;
     
     @Override
-    public List<Object[]> getAllResident() {
-        return this.residentRepo.getAllResident();
+    public List<Object[]> getAllResident(Map<String, String> params) {
+        return this.residentRepo.getAllResident(params);
+    }
+
+    @Override
+    public int countResident(Map<String, String> params) {
+        return this.residentRepo.countResident(params);
     }
     
 }

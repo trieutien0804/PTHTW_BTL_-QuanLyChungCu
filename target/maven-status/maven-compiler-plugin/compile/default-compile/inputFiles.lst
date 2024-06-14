@@ -32,6 +32,7 @@ E:\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\configs\TilesConfig.java
 E:\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\services\impl\ApartmentServiceImpl.java
 E:\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\filters\JwtAuthenticationTokenFilter.java
 E:\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\controllers\ApartmentController.java
+E:\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\formatters\ResidentFormatter.java
 E:\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\configs\WebAppContextConfig.java
 E:\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\repositories\impl\LockerRepositoryImpl.java
 E:\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\services\impl\SurveyServiceImpl.java

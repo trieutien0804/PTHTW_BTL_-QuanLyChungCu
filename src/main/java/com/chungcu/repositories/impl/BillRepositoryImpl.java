@@ -8,6 +8,7 @@ import com.chungcu.pojo.Bill;
 import com.chungcu.repositories.BillRepository;
 import java.util.List;
 import javax.persistence.Query;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -30,5 +31,21 @@ public class BillRepositoryImpl implements BillRepository {
         Session session = this.factory.getObject().getCurrentSession();
         Query q = session.createQuery("FROM Bill");
         return q.getResultList();
+    }
+
+    @Override
+    public boolean addOrUpdate(Bill bill) {
+        Session session = this.factory.getObject().getCurrentSession();
+        try {
+            if (bill.getId() == null) {
+                session.save(bill);
+            } else {
+                session.update(bill);
+            }
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 }

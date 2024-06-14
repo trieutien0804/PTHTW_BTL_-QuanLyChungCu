@@ -4,5 +4,9 @@
     Author     : tien
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-${bill}
+<a href="<c:url value="/admin/addBill"/>" type="button" class= "btn btn-navy rounded-pill">Thêm hóa đơn</a>
+<c:forEach items="${bills}" var="bill">
+    ${bill.type}
+</c:forEach>

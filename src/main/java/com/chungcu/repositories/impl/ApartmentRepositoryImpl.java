@@ -8,8 +8,10 @@ import com.chungcu.pojo.Apartment;
 import com.chungcu.pojo.Resident;
 import com.chungcu.repositories.ApartmentRepository;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -56,7 +58,7 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
         }
 
         q.where(predicates.toArray(Predicate[]::new));
-        q.orderBy(builder.desc(root.get("id")));
+        q.orderBy(builder.asc(root.get("id")));
 
         Query query = session.createQuery(q);
 
@@ -123,6 +125,10 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
     @Override
     public Apartment getApartmentById(int id) {
         Session s = this.factory.getObject().getCurrentSession();
+        Apartment apartment = s.get(Apartment.class, id);
+        if (apartment != null){
+            apartment.setResidentSet(new HashSet<Resident>(apartment.getResidentSet()));
+        }
         return s.get(Apartment.class, id);
     }
 

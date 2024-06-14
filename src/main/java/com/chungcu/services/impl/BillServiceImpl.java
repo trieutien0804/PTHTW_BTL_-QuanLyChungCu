@@ -16,13 +16,18 @@ import org.springframework.stereotype.Service;
  * @author tien
  */
 @Service
-public class BillServiceImpl implements BillService{
-    
+public class BillServiceImpl implements BillService {
+
     @Autowired
     private BillRepository billRepo;
 
     @Override
     public List<Bill> getALlBill() {
         return this.billRepo.getAllBill();
+    }
+
+    @Override
+    public boolean addOrUpdate(Bill bill) {
+        return this.billRepo.addOrUpdate(bill);
     }
 }

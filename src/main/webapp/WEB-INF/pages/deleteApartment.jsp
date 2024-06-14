@@ -16,7 +16,10 @@
     </h5>
     <div class="card-body">
         <p class="card-title">Những dữ liệu liên quan dưới đây cũng sẽ bị xóa</p>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <c:forEach items="${apartment.residentSet}" var="residents">
+            <p class="card-text">${residents.name}</p>
+        </c:forEach>
+   
         <form:form method="post" action="${action}" modelAttribute="apartment">
             <button type="submit" class="btn btn-danger">Xóa</button>
             <form:hidden path = "id" value = "${apartment.id}"/>

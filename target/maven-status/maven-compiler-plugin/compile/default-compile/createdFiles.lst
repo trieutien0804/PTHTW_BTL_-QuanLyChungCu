@@ -64,6 +64,7 @@ NewMain.class
 com\chungcu\services\SurveyquestionService.class
 com\chungcu\controllers\BillController.class
 com\chungcu\configs\SpringSecurityConfig.class
+com\chungcu\formatters\ResidentFormatter.class
 com\chungcu\controllers\SurveyController.class
 com\chungcu\pojo\Locker.class
 com\chungcu\pojo\Surveyquestion_.class

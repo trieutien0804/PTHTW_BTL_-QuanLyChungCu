@@ -6,11 +6,13 @@ package com.chungcu.services;
 
 import com.chungcu.pojo.Resident;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author tien
  */
 public interface ResidentService {
-    List<Object[]> getAllResident();
+    List<Object[]> getAllResident(Map<String, String> params);
+    int countResident(Map<String, String> params);
 }

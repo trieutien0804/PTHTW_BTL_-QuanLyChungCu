@@ -13,4 +13,5 @@ import java.util.List;
  */
 public interface BillRepository {
      List<Bill> getAllBill();
+     boolean addOrUpdate(Bill bill);
 }
