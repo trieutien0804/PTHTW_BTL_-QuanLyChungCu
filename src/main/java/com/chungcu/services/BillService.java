@@ -6,11 +6,18 @@ package com.chungcu.services;
 
 import com.chungcu.pojo.Bill;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author tien
  */
 public interface BillService {
-    List<Bill> getALlBill();
+    List<Bill> getALlBill(Map<String, String> params);
+    boolean addOrUpdateBill(Bill bill);
+    Bill getBillById(int id);
+    int countBill(Map<String, String> params);
+    boolean deleteBill(int billId);
+
+
 }

@@ -8,6 +8,7 @@ import com.chungcu.pojo.Bill;
 import com.chungcu.repositories.BillRepository;
 import com.chungcu.services.BillService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,13 +17,33 @@ import org.springframework.stereotype.Service;
  * @author tien
  */
 @Service
-public class BillServiceImpl implements BillService{
-    
+public class BillServiceImpl implements BillService {
+
     @Autowired
     private BillRepository billRepo;
 
     @Override
-    public List<Bill> getALlBill() {
-        return this.billRepo.getAllBill();
+    public List<Bill> getALlBill(Map<String, String> params) {
+        return this.billRepo.getAllBill(params);
+    }
+
+    @Override
+    public boolean addOrUpdateBill(Bill bill) {
+        return this.billRepo.addOrUpdateBill(bill);
+    }
+    @Override
+    public Bill getBillById(int id){
+        return this.billRepo.getBillById(id);
+    }
+
+    @Override
+    public int countBill(Map<String, String> params) {
+        return this.billRepo.countBill(params);
+    
+    }
+
+    @Override
+    public boolean deleteBill(int billId) {
+        return this.billRepo.deleteBill(billId);
     }
 }

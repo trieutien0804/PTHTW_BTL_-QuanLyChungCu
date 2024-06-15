@@ -8,6 +8,7 @@ import com.chungcu.pojo.Locker;
 import com.chungcu.repositories.LockerRepository;
 import com.chungcu.services.LockerService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,29 @@ public class LockerServiceImpl implements LockerService{
     private LockerRepository lockerRepo;
     
     @Override
-    public List<Locker> getAllLocker() {
-        return this.lockerRepo.getALlLocker();
+    public List<Locker> getAllLocker(Map<String, String> params) {
+        return this.lockerRepo.getAllLocker(params);
+    }
+
+    @Override
+    public int countLocker(Map<String, String> params) {
+        return this.lockerRepo.countLocker(params);
+    }
+
+    @Override
+    public boolean addOrUpdateLocker(Locker locker) {
+        return this.lockerRepo.addOrUpdateLocker(locker);
+
+    }
+
+    @Override
+    public boolean deleteLocker(int lockerId) {
+        return this.lockerRepo.deleteLocker(lockerId);
+    }
+
+    @Override
+    public Locker getLockerById(int id) {
+        return this.lockerRepo.getLockerById(id);
     }
     
 }

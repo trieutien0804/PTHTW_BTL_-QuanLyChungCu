@@ -44,6 +44,7 @@ D:\MIS\HK8\PTHTW\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\repositories
 D:\MIS\HK8\PTHTW\PTHTW_BTL_-QuanLyChungCu\src\main\java\NewMain.java
 D:\MIS\HK8\PTHTW\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\services\impl\BillServiceImpl.java
 D:\MIS\HK8\PTHTW\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\controllers\IndexController.java
+D:\MIS\HK8\PTHTW\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\formatters\ResidentFormatter.java
 D:\MIS\HK8\PTHTW\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\repositories\BillRepository.java
 D:\MIS\HK8\PTHTW\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\dto\DTOAddSurvey.java
 D:\MIS\HK8\PTHTW\PTHTW_BTL_-QuanLyChungCu\src\main\java\com\chungcu\repositories\impl\SurveyRepositoryImpl.java

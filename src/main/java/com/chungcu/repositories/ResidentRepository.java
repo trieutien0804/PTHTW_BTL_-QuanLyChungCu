@@ -6,6 +6,7 @@ package com.chungcu.repositories;
 
 import com.chungcu.pojo.Resident;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -14,5 +15,6 @@ import java.util.List;
  */
 public interface ResidentRepository {
     int addResident(Resident resident);
-    List<Object[]> getAllResident();
+    List<Object[]> getAllResident(Map<String, String> params);
+    int countResident(Map<String, String> params);
 }

@@ -12,10 +12,10 @@
         <div class="d-flex justify-content-between p-3">
 
             <form class="d-flex ">
-                <input class="form-control me-2 rounded-pill" type="search" placeholder="Nhập tên cư dân" aria-label="Search">
-                <div class="rounded-pill btn-yellow">
+                <input class="form-control me-2 rounded-pill" type="text" name="kw" value="${keyword}" placeholder="Nhập tên cư dân" aria-label="Search">
+                <button type="submit" class="rounded-pill btn-yellow">
                     <img src="<c:url value="/images/search.png"/>" alt="Avatar" class="">   
-                </div>
+                </button>
             </form>
             <a href="<c:url value="/admin/addResident"/>" type="button" class= "btn btn-navy rounded-pill">Thêm cư dân</a>
 
@@ -76,39 +76,19 @@
                     </form>
                 </div>
             </div>
+
         </div>
     </div>
+    <ul class="pagination ms-2">
+        <c:forEach begin="1" end="${counter}" var="i">
+            <c:url value="/admin/resident" var="pageAction">
+                <c:param name="kw" value="${param.kw}" /> 
+                <c:param name="page" value="${i}" />
+            </c:url>
+            <li class="page-item">
+                <a class="page-link" href="${pageAction}">${i}</a>
+            </li>
+        </c:forEach>
+    </ul>
 </section>
-<!--<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const updateButtons = document.querySelectorAll('.btn-primary'); // Lấy tất cả các nút "Cập nhật"
-        const updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
-        const updateForm = document.getElementById('updateForm');
-
-        updateButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                event.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
-
-                const row = button.closest('tr');
-                const apartmentId = row.cells[0].textContent; // Lấy mã căn hộ từ ô đầu tiên
-                const apartmentNumber = row.cells[1].textContent;
-                const status = row.cells[2].textContent;
-
-                updateForm.apartmentId.value = apartmentId;
-                updateForm.apartmentNumber.value = apartmentNumber;
-                updateForm.status.value = status;
-
-                updateModal.show(); // Hiển thị modal
-            });
-        });
-
-        updateForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            // Gửi dữ liệu form đến server để cập nhật (bạn cần xử lý phần này)
-            // ... Sau khi cập nhật thành công, bạn có thể ẩn modal:
-            updateModal.hide();
-            // Cập nhật lại dữ liệu trong bảng
-        });
-    });
-</script>-->
 

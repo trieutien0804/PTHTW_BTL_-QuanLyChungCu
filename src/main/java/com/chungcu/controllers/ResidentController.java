@@ -11,7 +11,10 @@ import com.chungcu.pojo.User;
 import com.chungcu.services.ApartmentService;
 import com.chungcu.services.ResidentService;
 import com.chungcu.services.UserService;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -27,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/admin")
+@PropertySource("classpath:configs.properties")
 public class ResidentController {
 
     @Autowired
@@ -35,11 +40,18 @@ public class ResidentController {
     private UserService userService;
     @Autowired
     private ResidentService residentService;
+    @Autowired
+    private Environment env;
 
     @GetMapping("/resident")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String residentView(Model model) {
-        model.addAttribute("residentDetails", this.residentService.getAllResident());
+    public String residentView(Model model, @RequestParam Map<String, String> params) {        
+        int pagesize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
+        int counter = residentService.countResident(params);
+        String kw = params.get("kw");
+        model.addAttribute("keyword", kw);
+        model.addAttribute("counter", Math.ceil((counter) * 1.0 / pagesize));
+        model.addAttribute("residentDetails", this.residentService.getAllResident(params));      
         return "resident";
     }
 
@@ -66,6 +78,7 @@ public class ResidentController {
         User user = addResident.getUser();
         Resident resident = addResident.getResident();
         Locker locker = addResident.getLocker();
+        locker.setLockerNumber(resident.getApartmentId().toString());
         if (userService.addUser(user, locker, resident))
             return "redirect:/admin/resident";
         return "addResident";

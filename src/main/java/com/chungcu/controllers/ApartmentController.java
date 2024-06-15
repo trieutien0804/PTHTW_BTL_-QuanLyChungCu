@@ -8,6 +8,7 @@ import com.chungcu.pojo.Apartment;
 import com.chungcu.services.ApartmentService;
 import java.util.List;
 import java.util.Map;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -15,6 +16,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,12 +39,6 @@ public class ApartmentController {
     @Autowired
     private Environment env;
 
-//    @GetMapping("/apartment")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
-//    public String createView(Model model) {
-//        model.addAttribute("apartments", apartmentService.getApartments());
-//        return "apartment";
-//    }
     @GetMapping("/apartment")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String createView(Model model, @RequestParam Map<String, String> params) {
@@ -64,9 +60,11 @@ public class ApartmentController {
 
     @PostMapping("/addApartment")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String addApartment(@ModelAttribute(value = "apartment") Apartment apartment) {
-        if (apartmentService.addOrUpdateApartment(apartment) == true) {
-            return "redirect:/admin/apartment";
+    public String addApartment(@ModelAttribute(value = "apartment") @Valid Apartment apartment, BindingResult result) {
+        if (!result.hasErrors()) {
+            if (apartmentService.addOrUpdateApartment(apartment) == true) {
+                return "redirect:/admin/apartment";
+            }
         }
         return "addApartment";
     }
@@ -79,15 +77,14 @@ public class ApartmentController {
 
     @GetMapping("deleteApartment/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String deleteSurvey(@PathVariable(value = "id") int apartmentId, Model model) {
-        model.addAttribute("apartment", new Apartment(apartmentId));
+    public String deleteApartment(@PathVariable(value = "id") int apartmentId, Model model) {
+        model.addAttribute("apartment", apartmentService.getApartmentById(apartmentId));
         return "deleteApartment";
     }
 
     @PostMapping("deleteApartment")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String submitDeleteSurvey(@ModelAttribute(value = "apartment") Apartment apartment) {
-        System.out.print(apartment.getId());
+    public String submitDeleteApartment(@ModelAttribute(value = "apartment") Apartment apartment) {
         if (apartmentService.deleteApartment(apartment.getId()) == true) {
             return "redirect:/admin/apartment";
         }
