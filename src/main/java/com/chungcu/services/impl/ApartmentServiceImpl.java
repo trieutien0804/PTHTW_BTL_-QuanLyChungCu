@@ -61,6 +61,11 @@ public class ApartmentServiceImpl implements ApartmentService {
     public int countApartment(Map<String, String> params) {
         return this.apartmentRepo.countApartment(params);
     }
+
+    @Override
+    public boolean checkApartmentNumber(String apartmentNumber) {
+        return this.apartmentRepo.checkApartmentNumber(apartmentNumber);
+    }
     
     
 }

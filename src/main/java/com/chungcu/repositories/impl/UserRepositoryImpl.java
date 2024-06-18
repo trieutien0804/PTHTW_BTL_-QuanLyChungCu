@@ -88,4 +88,38 @@ public class UserRepositoryImpl implements UserRepositories {
 //        User user = session.get(User.class, userId);
 //        return user;
 //    }
+    @Override
+    public boolean checkUniqueUsername(String username) {
+        try {
+            Session session = this.factory.getObject().getCurrentSession();
+            String q = "SELECT COUNT(*) FROM User u WHERE u.username = :userName";
+            Query query = session.createQuery(q);
+            query.setParameter("userName", username);
+            int count = query.getFirstResult();
+            return count > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public User getUserById(int id) {
+        Session s = this.factory.getObject().getCurrentSession();
+        User user = s.get(User.class, id);
+        return user;
+    }
+
+    @Override
+    public boolean updateUser(User user) {
+        Session session = this.factory.getObject().getCurrentSession();
+        Short isNotFirstLogin = 0;
+        user.setIsFirstLogin(isNotFirstLogin);
+        try {
+            session.update(user);
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
 }

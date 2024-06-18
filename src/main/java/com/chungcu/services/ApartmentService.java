@@ -20,4 +20,5 @@ public interface ApartmentService {
     boolean deleteApartment(int apartmentId);
     Apartment getApartmentById(int id);
     int countApartment(Map<String, String> params);
+    boolean checkApartmentNumber(String apartmentNumber);
 }

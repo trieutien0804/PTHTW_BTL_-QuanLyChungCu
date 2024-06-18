@@ -126,7 +126,7 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
     public Apartment getApartmentById(int id) {
         Session s = this.factory.getObject().getCurrentSession();
         Apartment apartment = s.get(Apartment.class, id);
-        if (apartment != null){
+        if (apartment != null) {
             apartment.setResidentSet(new HashSet<Resident>(apartment.getResidentSet()));
         }
         return s.get(Apartment.class, id);
@@ -168,5 +168,19 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
         List<Apartment> apartments = query.getResultList();
 
         return apartments.size();
+    }
+
+    @Override
+    public boolean checkApartmentNumber(String apartmentNumber) {
+        try {
+            Session session = this.factory.getObject().getCurrentSession();
+            String q = "SELECT COUNT(*) FROM Apartment a WHERE a.apartment_number = :apartmentNumber";
+            Query query = session.createQuery(q);
+            query.setParameter("apartmentNumber", apartmentNumber);
+            int count = query.getFirstResult();
+            return count > 0;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

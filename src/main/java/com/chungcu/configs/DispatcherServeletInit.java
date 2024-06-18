@@ -18,7 +18,8 @@ public class DispatcherServeletInit extends AbstractAnnotationConfigDispatcherSe
             HibernateConfig.class,
             TilesConfig.class,
             SpringSecurityConfig.class,
-            JwtSecurityConfig.class
+            JwtSecurityConfig.class,
+            PaymentVNPayConfig.class
         };
     }
 

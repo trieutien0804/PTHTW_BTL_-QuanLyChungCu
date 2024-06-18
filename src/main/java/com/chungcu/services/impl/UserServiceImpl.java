@@ -11,9 +11,15 @@ import com.chungcu.repositories.LockerRepository;
 import com.chungcu.repositories.ResidentRepository;
 import com.chungcu.repositories.UserRepositories;
 import com.chungcu.services.UserService;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -25,6 +31,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -44,6 +51,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private Cloudinary cloudinary;
 
     @Override
     @Transactional
@@ -110,6 +120,31 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean authUser(String username, String password) {
         return this.userRepo.authUser(username, password);
+    }
+
+    @Override
+    public boolean checkUniqueUsername(String username) {
+        return this.userRepo.checkUniqueUsername(username);
+    }
+
+    @Override
+    public User getUserById(int id) {
+        return this.userRepo.getUserById(id);
+    }
+
+    @Override
+    public boolean updateFirstLogin(User user) {
+        String pass = user.getPassword();
+        user.setPassword(this.passwordEncoder.encode(pass));
+        if (!user.getFile().isEmpty()) {
+            try {
+                Map res = this.cloudinary.uploader().upload(user.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
+                user.setAvatar(res.get("secure_url").toString());
+            } catch (IOException ex) {
+                Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return this.userRepo.updateUser(user);
     }
 
 }

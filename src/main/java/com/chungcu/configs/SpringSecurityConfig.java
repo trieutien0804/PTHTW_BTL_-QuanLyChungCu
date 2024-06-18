@@ -7,6 +7,8 @@ package com.chungcu.configs;
 import com.chungcu.filters.CustomAccessDeniedHandler;
 import com.chungcu.filters.JwtAuthenticationTokenFilter;
 import com.chungcu.filters.RestAuthenticationEntryPoint;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -76,6 +78,17 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .access("hasRole('ROLE_ADMIN')");
 
         http.csrf().disable();
+    }
+    
+    @Bean
+    public Cloudinary cloudinary() {
+        Cloudinary cloudinary
+                = new Cloudinary(ObjectUtils.asMap(
+                        "cloud_name", "dxaieahfj",
+                        "api_key", "111991524347525",
+                        "api_secret", "PHALgz7JWwqJGp_9gik_JL3pAqc",
+                        "secure", true));
+        return cloudinary;
     }
 
 }

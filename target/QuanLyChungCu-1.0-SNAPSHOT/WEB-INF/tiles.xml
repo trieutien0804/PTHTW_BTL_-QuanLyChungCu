@@ -53,6 +53,11 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/addResident.jsp" />
     </definition>
+    <definition name="deleteResident" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý cư dân | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/deleteResident.jsp" />
+    </definition>
     <definition name="survey" extends="baseLayout">
         <put-attribute name="title" value="Quản lý khảo sát | Chung cư ABC - Admin" />
         <put-attribute name="content"

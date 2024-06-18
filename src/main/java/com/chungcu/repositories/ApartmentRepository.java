@@ -19,4 +19,5 @@ public interface ApartmentRepository {
     boolean deleteApartment(int apartmentId);
     Apartment getApartmentById(int id);
     int countApartment(Map<String, String> params);
+    boolean checkApartmentNumber(String apartmentNumber);
 }

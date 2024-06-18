@@ -14,6 +14,7 @@
     <div class="form-floating mb-3 mt-3">
         <form:input path="user.username" class="form-control" id="username" placeholder="Username" />
         <label for="username">Username</label>
+        <form:errors path="user.username" cssClass="text-danger" element="div"/>
     </div>
     <div class="form-floating mb-3 mt-3">
         <form:input path="user.password" class="form-control" id="password" placeholder="Password" />
@@ -38,6 +39,10 @@
             </c:forEach>
         </form:select>
         <label for="email">Select list (Select one):</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+        <form:input path="locker.lockerNumber" class="form-control" id="lockerNumber" placeholder="Locker Number" />
+        <label for="lockerNumber">Locker Number</label>
     </div>
     <button type="submit">Thêm cư dân</button>
 </form:form>

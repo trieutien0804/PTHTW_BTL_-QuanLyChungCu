@@ -3,11 +3,12 @@ import cookie from "react-cookies";
 
 const SERVER_CONTEXT = "/QuanLyChungCu";
 
-const SERVER = "http://localhost:8080/";
+const SERVER = "http://localhost:8081/";
 
 export const endpoints = {
     "login": `${SERVER_CONTEXT}/api/login/`,
-    "current-user": `${SERVER_CONTEXT}/api/current-user/`
+    "current-user": `${SERVER_CONTEXT}/api/current-user/`,
+    "update-profile": `${SERVER_CONTEXT}/api/update-profile/`
 }
 
 
