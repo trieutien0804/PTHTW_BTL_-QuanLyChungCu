@@ -102,7 +102,7 @@ public class BillRepositoryImpl implements BillRepository {
 //        Bill bill = session.get(Bill.class, id);
 //
 //        // Không cần thiết phải khởi tạo lại tập hợp cho Bill 
-//        // vì nó không có các trường quan hệ một-nhiều như ví dụ Apartment.
+//        // vì nó không có các trường quan hệ một-nhiều như ví dụ .
 //
 //        return bill; 
     }

@@ -6,6 +6,7 @@ package com.chungcu.controllers;
 
 import com.chungcu.pojo.Bill;
 import com.chungcu.services.BillService;
+import com.chungcu.services.ResidentService;
 import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
@@ -36,6 +37,9 @@ public class BillController {
     BillService billService;
     
     @Autowired
+    ResidentService residentService;
+
+    @Autowired
     private Environment env;
 
     @GetMapping("/bill")
@@ -56,31 +60,30 @@ public class BillController {
         return "addBill";
     }
 
-
     @PostMapping("/addBill")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addBill(@ModelAttribute(value = "bill") @Valid Bill bill, BindingResult result) {
-        if(!result.hasErrors()){
-            if(billService.addOrUpdateBill(bill) == true){
+        if (!result.hasErrors()) {
+            if (billService.addOrUpdateBill(bill) == true) {
                 return "redirect:/admin/bill";
             }
         }
         return "addBill";
     }
-    
+
     @GetMapping("/addBill/{id}")
     public String updateBillView(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("bill", this.billService.getBillById(id));
         return "addBill";
     }
-    
+
     @GetMapping("deleteBill/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteBill(@PathVariable(value = "id") int billId, Model model) {
         model.addAttribute("bill", billService.getBillById(billId));
         return "deleteBill";
     }
-    
+
     @PostMapping("deleteBill")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String submitDeleteBill(@ModelAttribute(value = "bill") Bill bill) {
