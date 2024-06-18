@@ -10,8 +10,6 @@
             Bạn có muốn xóa tủ đồ này không?
         </h5>
         <div class="card-body">
-            
-
             <form:form method="post" action="${action}" modelAttribute="locker">
                 <button type="submit" class="btn btn-danger">Xóa</button>
                 <form:hidden path = "id" value = "${locker.id}"/>

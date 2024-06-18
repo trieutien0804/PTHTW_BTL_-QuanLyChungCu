@@ -22,6 +22,7 @@
                 <div class="form-floating mb-3">
                     <form:input class="form-control"  id="type"  placeholder="Loại hóa đơn" path="type" />
                     <label for="name">Loại hóa đơn</label>
+                    <form:errors path="type" cssClass="text-danger" element="div"/>
                 </div>
                     <div class="form-floating mb-3">
                     <form:input class="form-control"  id="amount"  placeholder="Số tiền" path="amount" />
