@@ -5,6 +5,7 @@ import cookie from "react-cookies";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import Resident from './components/Resident';
 import UserBill from './components/UserBill';
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
@@ -20,12 +21,13 @@ const App = () => {
       <div className="d-flex flex-column min-vh-100">
         <BrowserRouter>
           <Header />
-          <main className="flex-grow-1">
+          <main className="flex-grow-1"> 
             <Container>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/user-bill" element={<UserBill />} />
+                <Route path="/resident" element={<Resident />} />
               </Routes>
             </Container>
           </main>

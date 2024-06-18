@@ -6,12 +6,16 @@ package com.chungcu.repositories;
 
 import com.chungcu.pojo.Bill;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author tien
  */
 public interface BillRepository {
-     List<Bill> getAllBill();
-     boolean addOrUpdate(Bill bill);
+     List<Bill> getAllBill(Map<String, String> params);
+     boolean addOrUpdateBill(Bill bill);
+     Bill getBillById(int id);
+     int countBill(Map<String, String> params);
+     boolean deleteBill(int billId);
 }

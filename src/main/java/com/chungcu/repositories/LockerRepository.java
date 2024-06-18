@@ -4,8 +4,10 @@
  */
 package com.chungcu.repositories;
 
+import com.chungcu.pojo.Bill;
 import com.chungcu.pojo.Locker;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -13,5 +15,9 @@ import java.util.List;
  */
 public interface LockerRepository {
     boolean addLocker(Locker locker);
-    List<Locker> getALlLocker();
+    List<Locker> getAllLocker(Map<String, String> params);
+    int countLocker(Map<String, String> params);
+    boolean addOrUpdateLocker(Locker locker);
+    boolean deleteLocker(int lockerId);
+    Locker getLockerById(int id);
 }

@@ -1,3 +1,6 @@
+body {
+    font-family: 'Lato', sans-serif; /* Hoặc font khác hỗ trợ tiếng Việt */
+}
 .content-center{
     display: flex;
     justify-content: center;

@@ -77,14 +77,14 @@ public class ApartmentController {
 
     @GetMapping("deleteApartment/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String deleteSurvey(@PathVariable(value = "id") int apartmentId, Model model) {
+    public String deleteApartment(@PathVariable(value = "id") int apartmentId, Model model) {
         model.addAttribute("apartment", apartmentService.getApartmentById(apartmentId));
         return "deleteApartment";
     }
 
     @PostMapping("deleteApartment")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String submitDeleteSurvey(@ModelAttribute(value = "apartment") Apartment apartment) {
+    public String submitDeleteApartment(@ModelAttribute(value = "apartment") Apartment apartment) {
         if (apartmentService.deleteApartment(apartment.getId()) == true) {
             return "redirect:/admin/apartment";
         }

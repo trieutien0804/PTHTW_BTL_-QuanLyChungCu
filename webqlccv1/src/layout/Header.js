@@ -12,11 +12,12 @@ const Header = () => {
             "type": "logout"
         })
     }
+   
     return (
     <>
         <Navbar expand="lg" style={{ backgroundColor: '#0C2249' }}>
         <Container>
-            <Navbar.Brand className="ContentCenter" href="/" style={{ fontSize: '2.5em', color: 'white', width: '150px' }}>T&D</Navbar.Brand>
+            <Navbar.Brand className="ContentCenter" to= "/" style={{ fontSize: '2.5em', color: 'white', width: '150px' }}>T&D</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto" style={{ color: 'white' }}>
@@ -45,7 +46,7 @@ const Header = () => {
                     </NavDropdown>
                 </Nav>
                 {user === null ? <Link variant="outline-secondary" className="nav-link me-2 text-white" to="/login">Đăng nhập</Link> : <>
-                    <Link variant="outline-secondary" className="nav-link me-2 text-white" to="/">Chào {user.username}</Link>
+                    <Link variant="outline-secondary" className="nav-link me-2 text-white" to="/resident">Chào {user.username}</Link>
                     <Button variant="secondary" onClick={logout}>Đăng xuất</Button>
                 </>}
 

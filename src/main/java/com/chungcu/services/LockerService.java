@@ -6,11 +6,16 @@ package com.chungcu.services;
 
 import com.chungcu.pojo.Locker;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author tien
  */
 public interface LockerService {
-    List<Locker> getAllLocker();
+    List<Locker> getAllLocker(Map<String, String> params);
+    int countLocker(Map<String, String> params);
+    boolean addOrUpdateLocker(Locker locker);
+    boolean deleteLocker(int lockerId);
+    Locker getLockerById(int id);
 }
