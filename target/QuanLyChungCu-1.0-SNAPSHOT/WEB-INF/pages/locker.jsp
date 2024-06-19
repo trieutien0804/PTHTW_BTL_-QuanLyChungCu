@@ -33,7 +33,7 @@
                         <td class="border-end align-content-center">${locker.lockerNumber}</td>
                         <td class="text-center">   
                             <a href="<c:url value="/admin/addLocker/${locker.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>
-                            <a href="<c:url value="/admin/addLocker/${locker.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>
+                            <a href="<c:url value="/admin/addLocker/${locker.id}" />" class="btn btn-navy rounded-pill">Thêm đơn hàng</a>
                             <a type="button" class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteLocker/${locker.id}'/>">Xóa</a>
                         </td>
                     </tr>

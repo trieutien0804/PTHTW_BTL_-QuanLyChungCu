@@ -17,7 +17,7 @@ public class NewMain {
      */
     public static void main(String[] args) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode("Admin@123");
+        String encodedPassword = passwordEncoder.encode("12345");
         System.out.println(encodedPassword); 
     }
     
