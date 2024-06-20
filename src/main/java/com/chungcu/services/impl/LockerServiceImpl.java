@@ -35,7 +35,6 @@ public class LockerServiceImpl implements LockerService{
     @Override
     public boolean addOrUpdateLocker(Locker locker) {
         return this.lockerRepo.addOrUpdateLocker(locker);
-
     }
 
     @Override
@@ -47,5 +46,12 @@ public class LockerServiceImpl implements LockerService{
     public Locker getLockerById(int id) {
         return this.lockerRepo.getLockerById(id);
     }
+
+//    @Override
+//    public boolean addOrder(Order order) {
+//        return this.lockerRepo.addOrder(order);
+//
+//    }
+
     
 }

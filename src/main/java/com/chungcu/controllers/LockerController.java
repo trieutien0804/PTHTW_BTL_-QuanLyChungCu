@@ -4,8 +4,11 @@
  */
 package com.chungcu.controllers;
 
+import com.chungcu.pojo.Apartment;
 import com.chungcu.pojo.Locker;
+import com.chungcu.pojo.Order1;
 import com.chungcu.services.LockerService;
+import com.chungcu.services.OrderService;
 import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
@@ -22,6 +25,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -35,6 +39,8 @@ public class LockerController {
     
     @Autowired
     private LockerService lockerService;
+    @Autowired
+    private OrderService orderService;
     
     @Autowired
     private Environment env;
@@ -56,6 +62,7 @@ public class LockerController {
         model.addAttribute("locker", new Locker());
         return "addLocker";
     }
+    
     
     @PostMapping("/addLocker")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -85,6 +92,39 @@ public class LockerController {
         if (lockerService.deleteLocker(locker.getId()) == true) {
             return "redirect:/admin/locker";
         }
-        return "adminHome";
+        return "adminHome"; 
     }
+    
+    @GetMapping("/addOrder")
+    public String addOrderView(Model model) {
+        model.addAttribute("order", new Order1());
+        return "addOrder"; 
+    }
+    
+    @PostMapping("/addOrder")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String addOrder(@ModelAttribute(value = "order") @Valid Order1 order, BindingResult result) {
+        if(!result.hasErrors()){
+            if(orderService.addOrder(order) == true){
+                return "redirect:/admin/locker";
+            }
+        }
+        return "addOrder";
+    }
+//    @PostMapping("/addOrder")
+//    public String addOrder(@ModelAttribute("order") @Valid Order1 order, 
+//                           BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+//        if (bindingResult.hasErrors()) { // Nếu có lỗi validation
+//            return "addOrder"; // Quay lại trang thêm đơn hàng, hiển thị lỗi
+//        }
+//        try {
+//            orderService.addOrder(order); // Gọi service để thêm đơn hàng vào cơ sở dữ liệu
+//            redirectAttributes.addFlashAttribute("successMsg", "Thêm đơn hàng thành công!");
+//        } catch (Exception e) {
+//            redirectAttributes.addFlashAttribute("errorMsg", "Có lỗi xảy ra khi thêm đơn hàng!");
+//        }
+//
+//        return "redirect:/admin/locker"; 
+//    }
+
 }

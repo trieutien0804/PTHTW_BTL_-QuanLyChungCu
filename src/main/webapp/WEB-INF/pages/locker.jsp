@@ -7,12 +7,13 @@
         <div class="d-flex justify-content-between p-3">
             <c:url value="/admin/locker" var="action"/>
             <form class="d-flex" action="${action}">
-                <input class="form-control me-2 rounded-pill" type="text" name="kw" value="${keyword}" placeholder="Nhập số loại hoá đơn" aria-label="Search">
+                <input class="form-control me-2 rounded-pill" type="text" name="kw" value="${keyword}" placeholder="Nhập số tủ đồ" aria-label="Search">
                 <button type="submit" class="rounded-pill btn-yellow">
                     <img src="<c:url value="/images/search.png"/>" alt="Avatar" class="">   
                 </button>
             </form>
             <a href="<c:url value="/admin/addLocker"/>" type="button" class= "btn btn-navy rounded-pill">Thêm tủ đồ</a>
+            <a href="<c:url value="/admin/addOrder/"/> " type="button" class="btn btn-navy rounded-pill">Thêm đơn hàng</a>
         </div>
     </div>
     <div class="bg-white">
@@ -26,18 +27,18 @@
                 </tr>
             </thead>
             <tbody >
-                <c:forEach items="${lockers}" var="locker">
-                    <tr class="border-bottom">
-                        <td class="border-end align-content-center">${locker.id}</td>
-                        <td class="border-end align-content-center">${locker.residentId.name}</td>
-                        <td class="border-end align-content-center">${locker.lockerNumber}</td>
-                        <td class="text-center">   
-                            <a href="<c:url value="/admin/addLocker/${locker.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>
-                            <a href="<c:url value="/admin/addLocker/${locker.id}" />" class="btn btn-navy rounded-pill">Thêm đơn hàng</a>
-                            <a type="button" class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteLocker/${locker.id}'/>">Xóa</a>
-                        </td>
-                    </tr>
-                </c:forEach>
+                    <c:forEach items="${lockers}" var="locker">
+                        <tr class="border-bottom">
+                            <td class="border-end align-content-center">${locker.id}</td>
+                            <td class="border-end align-content-center">${locker.residentId.name}</td>
+                            <td class="border-end align-content-center">${locker.lockerNumber}</td>
+                            <td class="text-center">   
+                                <a href="<c:url value="/admin/addLocker/${locker.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>
+                                <a href="<c:url value="/admin/addOrder/${locker.id}"/> " type="button" class="btn btn-navy rounded-pill">Thêm đơn hàng</a>
+                                <a type="button" class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteLocker/${locker.id}'/>">Xóa</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
             </tbody>
         </table>
         <ul class="pagination ms-2">

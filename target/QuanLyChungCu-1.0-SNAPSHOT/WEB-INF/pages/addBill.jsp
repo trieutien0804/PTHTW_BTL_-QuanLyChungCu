@@ -1,12 +1,9 @@
-<%-- 
-    Document   : addBill
-    Created on : Jun 14, 2024, 10:58:38 AM
-    Author     : tien
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link href="<c:url value="/css/pages.css"/>" rel="stylesheet"/>
+
 <section class="container pt-3">
     <div class="bg-white w-100 border-bottom ">
         <div class="content-center p-3">

@@ -128,5 +128,7 @@ public class Order1 implements Serializable {
     public String toString() {
         return "com.chungcu.pojo.Order1[ id=" + id + " ]";
     }
+
+    
     
 }

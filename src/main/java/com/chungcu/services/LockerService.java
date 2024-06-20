@@ -13,6 +13,7 @@ import java.util.Map;
  * @author tien
  */
 public interface LockerService {
+
     List<Locker> getAllLocker(Map<String, String> params);
     int countLocker(Map<String, String> params);
     boolean addOrUpdateLocker(Locker locker);

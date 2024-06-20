@@ -150,4 +150,17 @@ public class LockerRepositoryImpl implements LockerRepository {
         return s.get(Locker.class, id);
     }
 
+
+//    @Override
+//    public boolean addOrder(Order order) {
+//        try {
+//            Session session = this.factory.getObject().getCurrentSession();
+//            session.save(order);
+//            return true;
+//        } catch (HibernateException ex) {
+//            System.err.print(ex.getMessage());
+//        }
+//        return false;
+//    }
+
 }

@@ -13,10 +13,10 @@
     <class>com.chungcu.pojo.Locker</class>
     <class>com.chungcu.pojo.Bill</class>
     <class>com.chungcu.pojo.Parkingcard</class>
-    <class>com.chungcu.pojo.Order1</class>
     <class>com.chungcu.pojo.Surveyquestion</class>
     <class>com.chungcu.pojo.Surveyanswer</class>
     <class>com.chungcu.pojo.Familymember</class>
+    <class>com.chungcu.pojo.Order1</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hoteldb?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
