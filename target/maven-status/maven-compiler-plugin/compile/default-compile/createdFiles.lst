@@ -8,6 +8,7 @@ com\chungcu\services\impl\SurveyquestionServiceImpl.class
 com\chungcu\controllers\ApiPaymentController.class
 com\chungcu\pojo\Feedback.class
 com\chungcu\controllers\LockerController.class
+com\chungcu\formatters\BillFormatter.class
 com\chungcu\configs\SecurityWebApplicationInitializer.class
 com\chungcu\controllers\FeedbackController.class
 com\chungcu\pojo\Resident.class
@@ -57,6 +58,7 @@ com\chungcu\services\impl\BillServiceImpl.class
 com\chungcu\services\impl\LockerServiceImpl.class
 com\chungcu\repositories\ApartmentRepository.class
 com\chungcu\services\impl\ApartmentServiceImpl.class
+com\chungcu\controllers\ApiBillController.class
 com\chungcu\services\SurveySevice.class
 com\chungcu\services\FeedbackService.class
 com\chungcu\services\ResidentService.class
@@ -80,6 +82,7 @@ com\chungcu\repositories\ResidentRepository.class
 com\chungcu\services\impl\ResidentServiceImpl.class
 com\chungcu\dto\DTOAddSurvey.class
 com\chungcu\pojo\Resident_.class
+com\chungcu\formatters\UserFormatter.class
 com\chungcu\services\BillService.class
 com\chungcu\repositories\UserRepositories.class
 com\chungcu\dto\DTOPaymentReturn.class

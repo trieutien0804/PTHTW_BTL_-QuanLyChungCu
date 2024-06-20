@@ -27,7 +27,7 @@ import org.springframework.context.annotation.Configuration;
 public class PaymentVNPayConfig {
 
     public static String vnp_PayUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    public static String vnp_ReturnUrl = "http://localhost:8081/QuanLyChungCu/payment/payment_success";
+    public static String vnp_ReturnUrl = "http://localhost:3000/user-bill";
     public static String vnp_TmnCode = "B43A6YZP";
     public static String secretKey = "W4P7FLL4P3SUWMEM6QI6SAW5PTBUMD3A";
     public static String vnp_ApiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";

@@ -4,12 +4,14 @@
  */
 package com.chungcu.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -70,8 +72,9 @@ public class Bill implements Serializable {
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
+    @JsonIgnore
     @JoinColumn(name = "resident_id", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Resident residentId;
 
     public Bill() {

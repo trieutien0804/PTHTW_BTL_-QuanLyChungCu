@@ -5,6 +5,7 @@
 package com.chungcu.controllers;
 
 import com.chungcu.components.JwtService;
+import com.chungcu.pojo.Resident;
 import com.chungcu.pojo.User;
 import com.chungcu.services.UserService;
 import java.security.Principal;

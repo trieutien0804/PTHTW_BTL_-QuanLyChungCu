@@ -4,13 +4,12 @@ import cookie from "react-cookies";
 import { Navigate } from "react-router-dom";
 import { MyUserContext } from "../App";
 import Apis, { authApi, endpoints } from "../configs/Apis";
-
+import Table from 'react-bootstrap/Table';
 
 const Login = () => {
     const [user, dispatch] = useContext(MyUserContext);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
-    //const [userLogin, setUser] = useState({name: "", password:""});
     const [showModal, setShowModal] = useState(false);
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -54,7 +53,7 @@ const Login = () => {
     }
 
     const handleLoginSuccess = (data) => {
-        cookie.save("user", data)
+        cookie.save("user", {...data})
 
         dispatch({
             "type": "login",

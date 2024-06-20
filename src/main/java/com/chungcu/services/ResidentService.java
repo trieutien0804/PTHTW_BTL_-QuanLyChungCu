@@ -15,4 +15,5 @@ import java.util.Map;
 public interface ResidentService {
     List<Object[]> getAllResident(Map<String, String> params);
     int countResident(Map<String, String> params);
+    Resident getResidentByUserId(int userId);
 }
