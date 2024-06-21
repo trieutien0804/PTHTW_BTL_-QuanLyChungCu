@@ -46,4 +46,14 @@ public class BillServiceImpl implements BillService {
     public boolean deleteBill(int billId) {
         return this.billRepo.deleteBill(billId);
     }
+
+    @Override
+    public List<Bill> getBills() {
+        return this.billRepo.getBills();
+    }
+
+    @Override
+    public List<Bill> getBillsOfResident(int residentId) {
+        return this.billRepo.getBillsOfResident(residentId);
+    }
 }

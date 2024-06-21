@@ -18,4 +18,6 @@ public interface BillRepository {
      Bill getBillById(int id);
      int countBill(Map<String, String> params);
      boolean deleteBill(int billId);
+     List<Bill> getBills();
+     List<Bill> getBillsOfResident(int residentId);
 }

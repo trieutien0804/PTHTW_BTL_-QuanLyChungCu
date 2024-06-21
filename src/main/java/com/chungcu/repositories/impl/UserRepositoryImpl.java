@@ -4,6 +4,7 @@
  */
 package com.chungcu.repositories.impl;
 
+import com.chungcu.pojo.Resident;
 import com.chungcu.pojo.User;
 import com.chungcu.repositories.UserRepositories;
 import java.util.List;
@@ -68,6 +69,11 @@ public class UserRepositoryImpl implements UserRepositories {
             Session s = this.factory.getObject().getCurrentSession();
             Query q = s.createQuery("FROM User WHERE username = :username");
             q.setParameter("username", username);
+            User u = (User) q.getSingleResult();
+            Resident resident = u.getResident();
+            if (u != null) {
+                u.setResident(resident);
+        }
             return (User) q.getSingleResult();
         } catch (HibernateException e) {
             System.err.print(e.getMessage());

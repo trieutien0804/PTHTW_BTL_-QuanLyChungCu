@@ -4,6 +4,8 @@
  */
 package com.chungcu.dto;
 
+import com.chungcu.pojo.Bill;
+import java.util.List;
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -11,52 +13,54 @@ import javax.validation.constraints.NotBlank;
  * @author tien
  */
 public class DTOPaymentReturn {
-    @NotBlank
-    private String amount;
-    @NotBlank
-    private String orderInfor;
-    @NotBlank
-    private String returnUrl;
+    private String Status;
+    private String Message;
+    private List<Bill> Data;
 
     /**
-     * @return the amount
+     * @return the Status
      */
-    public String getAmount() {
-        return amount;
+    public String getStatus() {
+        return Status;
     }
 
     /**
-     * @param amount the amount to set
+     * @param Status the Status to set
      */
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
     /**
-     * @return the orderInfor
+     * @return the Message
      */
-    public String getOrderInfor() {
-        return orderInfor;
+    public String getMessage() {
+        return Message;
     }
 
     /**
-     * @param orderInfor the orderInfor to set
+     * @param Message the Message to set
      */
-    public void setOrderInfor(String orderInfor) {
-        this.orderInfor = orderInfor;
+    public void setMessage(String Message) {
+        this.Message = Message;
     }
 
     /**
-     * @return the returnUrl
+     * @return the Data
      */
-    public String getReturnUrl() {
-        return returnUrl;
+    public List<Bill> getData() {
+        return Data;
     }
 
     /**
-     * @param returnUrl the returnUrl to set
+     * @param Data the Data to set
      */
-    public void setReturnUrl(String returnUrl) {
-        this.returnUrl = returnUrl;
+    public void setData(List<Bill> Data) {
+        this.Data = Data;
     }
+
+    /**
+     * @param Data the Data to set
+     */
+
 }

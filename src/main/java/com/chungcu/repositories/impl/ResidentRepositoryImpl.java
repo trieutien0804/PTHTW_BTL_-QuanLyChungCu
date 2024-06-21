@@ -148,4 +148,19 @@ public class ResidentRepositoryImpl implements ResidentRepository {
         return residents.size();
     }
 
+    @Override
+    public Resident getResidentByUserId(int userId) {
+        Session session = this.factory.getObject().getCurrentSession();
+        String hql = "SELECT r FROM Resident r WHERE r.userId.id = :userId";
+        Query query = session.createQuery(hql);
+        query.setParameter("userId", userId);
+        List<Resident> results = query.getResultList();
+
+        if (results.isEmpty()) {
+            return null;
+        } else {
+            return results.get(0);
+        }
+    }
+
 }

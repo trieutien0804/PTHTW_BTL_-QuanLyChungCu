@@ -5,7 +5,9 @@
 package com.chungcu.configs;
 
 import com.chungcu.formatters.ApartmentFormatter;
+import com.chungcu.formatters.BillFormatter;
 import com.chungcu.formatters.ResidentFormatter;
+import com.chungcu.formatters.UserFormatter;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -45,6 +47,8 @@ public class WebAppContextConfig implements WebMvcConfigurer {
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(new ApartmentFormatter());
         registry.addFormatter(new ResidentFormatter());
+        registry.addFormatter(new BillFormatter());
+        registry.addFormatter(new UserFormatter());
     }
 
     @Bean(name = "validator")

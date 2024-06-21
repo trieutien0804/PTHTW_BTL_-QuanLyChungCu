@@ -17,4 +17,5 @@ public interface ResidentRepository {
     int addResident(Resident resident);
     List<Object[]> getAllResident(Map<String, String> params);
     int countResident(Map<String, String> params);
+    Resident getResidentByUserId(int userId);
 }

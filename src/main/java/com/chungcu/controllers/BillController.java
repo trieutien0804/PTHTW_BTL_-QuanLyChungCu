@@ -35,7 +35,7 @@ public class BillController {
 
     @Autowired
     BillService billService;
-    
+
     @Autowired
     ResidentService residentService;
 
@@ -45,6 +45,7 @@ public class BillController {
     @GetMapping("/bill")
     public String billView(Model model, @RequestParam Map<String, String> params) {
         int pagesize = Integer.parseInt(this.env.getProperty("PAGE_SIZE"));
+
         List<Bill> bill = billService.getALlBill(params);
         int counter = billService.countBill(params);
         String kw = params.get("kw");

@@ -4,11 +4,13 @@
  */
 package com.chungcu.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -69,16 +71,22 @@ public class Resident implements Serializable {
     @Column(name = "is_active")
     private short isActive;
     @OneToMany(mappedBy = "residentId")
+    @JsonIgnore
     private Set<Feedback> feedbackSet;
     @OneToMany(mappedBy = "residentId")
+    @JsonIgnore
     private Set<Familymember> familymemberSet;
     @OneToMany(mappedBy = "residentId")
+    @JsonIgnore
     private Set<Bill> billSet;
+    @JsonIgnore
     @OneToMany(mappedBy = "residentId")
     private Set<Surveyanswer> surveyanswerSet;
+    @JsonIgnore
     @OneToMany(mappedBy = "residentId")
     private Set<Locker> lockerSet;
     @OneToMany(mappedBy = "residentId")
+    @JsonIgnore
     private Set<Parkingcard> parkingcardSet;
     @JoinColumn(name = "apartment_id", referencedColumnName = "id")
     @ManyToOne

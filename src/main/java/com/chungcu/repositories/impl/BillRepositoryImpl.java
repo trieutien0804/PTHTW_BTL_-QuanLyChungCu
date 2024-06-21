@@ -4,7 +4,6 @@
  */
 package com.chungcu.repositories.impl;
 
-
 import com.chungcu.pojo.Bill;
 import com.chungcu.pojo.Resident;
 import com.chungcu.repositories.BillRepository;
@@ -37,11 +36,10 @@ public class BillRepositoryImpl implements BillRepository {
 
     @Autowired
     private LocalSessionFactoryBean factory;
-    
+
     @Autowired
     private Environment env;
 
-    
     @Override
     public List<Bill> getAllBill(Map<String, String> params) {
         Session session = this.factory.getObject().getCurrentSession();
@@ -94,6 +92,7 @@ public class BillRepositoryImpl implements BillRepository {
             return false;
         }
     }
+
     @Override
     public Bill getBillById(int id) {
         Session s = this.factory.getObject().getCurrentSession();
@@ -144,5 +143,20 @@ public class BillRepositoryImpl implements BillRepository {
             return false;
         }
     }
-    
+
+    @Override
+    public List<Bill> getBills() {
+        Session session = this.factory.getObject().getCurrentSession();
+        Query q = session.createQuery("FROM Bill");
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Bill> getBillsOfResident(int residentId) {
+        Session session = this.factory.getObject().getCurrentSession();
+        String hql = "SELECT b FROM Bill b WHERE b.residentId.id = :residentId";  // Sửa alias thành b
+        Query query = session.createQuery(hql);
+        query.setParameter("residentId", residentId);
+        return query.getResultList();
+    }
 }

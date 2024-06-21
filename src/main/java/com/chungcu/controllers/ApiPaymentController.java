@@ -6,6 +6,9 @@ package com.chungcu.controllers;
 
 import com.chungcu.configs.PaymentVNPayConfig;
 import com.chungcu.dto.DTOPaymentRes;
+import com.chungcu.dto.DTOPaymentReturn;
+import com.chungcu.pojo.Bill;
+import com.chungcu.services.BillService;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -23,7 +26,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -33,23 +39,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/payment")
 public class ApiPaymentController {
+
+    @Autowired
+    BillService billService;
     
     @Autowired
     PaymentVNPayConfig paymentVNPayConfig;
 
-    @GetMapping("/create_payment")
+    @PostMapping("/create_payment")
     @CrossOrigin
-    public ResponseEntity<?> createPayment() throws UnsupportedEncodingException {
+    public ResponseEntity<?> createPayment(@RequestBody Bill bill) throws UnsupportedEncodingException {
 //        String orderType = "other";
 //        long amount = Integer.parseInt(req.getParameter("amount"))*100;
 //        String bankCode = req.getParameter("bankCode");
         String vnp_Version = "2.1.0";
         String vnp_Command = "pay";
         String orderType = "other";
-        long amount = 1000000;
-
         String vnp_TxnRef = PaymentVNPayConfig.getRandomNumber(8);
-        String vnp_IpAddr = "192.168.1.136"; //PaymentVNPayConfig.getIpAddress(req) 
+        String vnp_IpAddr = "192.168.1.136";
 
         String vnp_TmnCode = PaymentVNPayConfig.vnp_TmnCode;
 
@@ -57,7 +64,8 @@ public class ApiPaymentController {
         vnp_Params.put("vnp_Version", vnp_Version);
         vnp_Params.put("vnp_Command", vnp_Command);
         vnp_Params.put("vnp_TmnCode", vnp_TmnCode);
-        vnp_Params.put("vnp_Amount", String.valueOf(amount));
+        int intValue = bill.getAmount().intValue() * 100;
+        vnp_Params.put("vnp_Amount", String.valueOf(intValue));
         vnp_Params.put("vnp_CurrCode", "VND");
         vnp_Params.put("vnp_BankCode", "NCB");
 
@@ -65,7 +73,7 @@ public class ApiPaymentController {
 //            vnp_Params.put("vnp_BankCode", bankCode);
 //        }
         vnp_Params.put("vnp_TxnRef", vnp_TxnRef);
-        vnp_Params.put("vnp_OrderInfo", "Thanh toan don hang:" + vnp_TxnRef);
+        vnp_Params.put("vnp_OrderInfo", "Thanh toan ma hoa don:" + bill.getId());
         vnp_Params.put("vnp_OrderType", orderType);
         vnp_Params.put("vnp_Locale", "vn");
 //        String locate = req.getParameter("language");
@@ -113,19 +121,37 @@ public class ApiPaymentController {
         String vnp_SecureHash = PaymentVNPayConfig.hmacSHA512(PaymentVNPayConfig.secretKey, hashData.toString());
         queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
         String paymentUrl = PaymentVNPayConfig.vnp_PayUrl + "?" + queryUrl;
-        
+
         DTOPaymentRes dtoPaymentRes = new DTOPaymentRes();
         dtoPaymentRes.setStatus("Ok");
-        dtoPaymentRes.setMessage("Successfully"); 
+        dtoPaymentRes.setMessage("Successfully");
         dtoPaymentRes.setURL(paymentUrl);
-        
+
         return ResponseEntity.status(HttpStatus.OK).body(dtoPaymentRes);
     }
-    
+
     @GetMapping("/payment_success")
     @CrossOrigin
-    public ResponseEntity<?> successPayment(){
-        return new ResponseEntity<>("Da thanh cong", HttpStatus.OK);
+    public ResponseEntity<?> successPayment(
+            @RequestParam(value = "vnp_Amount") String amount,
+            @RequestParam(value = "vnp_BankCode") String bankCode,
+            @RequestParam(value = "vnp_OrderInfo") String order,
+            @RequestParam(value = "vnp_ResponseCode") String responseCode) {
+        String billIdStr = order.split(":")[1];
+        int billId = Integer.parseInt(billIdStr);
+        DTOPaymentReturn dtoPaymentReturn = new DTOPaymentReturn();
+        if (responseCode.equals("00")) {
+            dtoPaymentReturn.setStatus("Ok");
+            dtoPaymentReturn.setMessage("Successfully");
+            Bill bill = billService.getBillById(billId);
+            bill.setPaymentStatus("Da thanh toan");
+            billService.addOrUpdateBill(bill);
+            //set lai trang thai cua bill
+        } else {
+            dtoPaymentReturn.setStatus("No");
+            dtoPaymentReturn.setMessage("Failed");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(dtoPaymentReturn);
     }
-    
+
 }

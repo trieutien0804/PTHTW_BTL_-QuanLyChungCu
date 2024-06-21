@@ -4,6 +4,7 @@
  */
 package com.chungcu.services.impl;
 
+import com.chungcu.pojo.Resident;
 import com.chungcu.repositories.ResidentRepository;
 import com.chungcu.services.ResidentService;
 import java.util.List;
@@ -29,6 +30,11 @@ public class ResidentServiceImpl implements ResidentService{
     @Override
     public int countResident(Map<String, String> params) {
         return this.residentRepo.countResident(params);
+    }
+
+    @Override
+    public Resident getResidentByUserId(int userId) {
+        return this.residentRepo.getResidentByUserId(userId);
     }
     
 }
