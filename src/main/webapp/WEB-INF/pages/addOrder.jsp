@@ -8,8 +8,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="<c:url value="/css/pages.css"/>" rel="stylesheet"/>
-
-<section class="container pt-3">
+${locker.order1Set.id}
+<!--<section class="container pt-3">
     <div class="bg-white w-100 border-bottom ">
         <div class="content-center p-3">
             <h1 class="modal-title fw-bold">Thêm đơn hàng</h1>
@@ -48,6 +48,6 @@
         </div>
     </div>
 </div>
-</section>
+</section>-->
 
 

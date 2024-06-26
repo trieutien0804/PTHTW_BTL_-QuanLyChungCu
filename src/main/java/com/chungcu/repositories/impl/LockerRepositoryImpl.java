@@ -5,11 +5,14 @@
 package com.chungcu.repositories.impl;
 
 import com.chungcu.pojo.Locker;
+import com.chungcu.pojo.Order1;
+import com.chungcu.pojo.Resident;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 import com.chungcu.repositories.LockerRepository;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.Query;
@@ -147,6 +150,10 @@ public class LockerRepositoryImpl implements LockerRepository {
     @Override
     public Locker getLockerById(int id) {
         Session s = this.factory.getObject().getCurrentSession();
+        Locker locker = s.get(Locker.class, id);
+        if (locker != null) {
+            locker.setOrder1Set(new HashSet<Order1>(locker.getOrder1Set()));
+        }
         return s.get(Locker.class, id);
     }
 

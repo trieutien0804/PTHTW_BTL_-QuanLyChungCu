@@ -12,8 +12,7 @@
                     <img src="<c:url value="/images/search.png"/>" alt="Avatar" class="">   
                 </button>
             </form>
-            <a href="<c:url value="/admin/addLocker"/>" type="button" class= "btn btn-navy rounded-pill">Thêm tủ đồ</a>
-            <a href="<c:url value="/admin/addOrder/"/> " type="button" class="btn btn-navy rounded-pill">Thêm đơn hàng</a>
+
         </div>
     </div>
     <div class="bg-white">
@@ -33,9 +32,9 @@
                             <td class="border-end align-content-center">${locker.residentId.name}</td>
                             <td class="border-end align-content-center">${locker.lockerNumber}</td>
                             <td class="text-center">   
-                                <a href="<c:url value="/admin/addLocker/${locker.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>
-                                <a href="<c:url value="/admin/addOrder/${locker.id}"/> " type="button" class="btn btn-navy rounded-pill">Thêm đơn hàng</a>
-                                <a type="button" class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteLocker/${locker.id}'/>">Xóa</a>
+                                
+                                <a href="<c:url value="/admin/addOrder/${locker.id}"/> " type="button" class="btn btn-navy rounded-pill">...</a>
+
                             </td>
                         </tr>
                     </c:forEach>

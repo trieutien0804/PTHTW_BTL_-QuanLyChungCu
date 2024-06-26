@@ -15,4 +15,5 @@ import java.util.Map;
 public interface OrderRepository {
     boolean addOrder(Order1 order);
     boolean addOrUpdateOrder(Order1 order);
+    List<Order1> getOrderByLockerId(int id);
 }

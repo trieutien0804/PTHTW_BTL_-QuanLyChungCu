@@ -4,8 +4,15 @@
  */
 package com.chungcu.repositories.impl;
 
+import com.chungcu.pojo.Locker;
 import com.chungcu.pojo.Order1;
 import com.chungcu.repositories.OrderRepository;
+import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +58,26 @@ public class OrderRepositoryImpl implements OrderRepository{
             ex.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public List<Order1> getOrderByLockerId(int id) {
+        Session session = this.factory.getObject().getCurrentSession(); // Assuming you have a sessionFactory
+
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<Order1> query = builder.createQuery(Order1.class);
+            Root<Order1> root = query.from(Order1.class);
+            Join<Order1, Locker> lockerJoin = root.join("lockerId", JoinType.INNER); // Inner join to fetch only orders with a locker
+
+            query.select(root)
+                 .where(builder.equal(lockerJoin.get("id"), id));
+
+            List<Order1> orders = session.createQuery(query).getResultList();
+           
+
+            return orders;
+
+ 
     }
     
 }

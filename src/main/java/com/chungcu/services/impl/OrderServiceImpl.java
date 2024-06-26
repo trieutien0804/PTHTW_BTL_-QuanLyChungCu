@@ -8,6 +8,7 @@ import com.chungcu.pojo.Order1;
 import com.chungcu.repositories.OrderRepository;
 import org.springframework.stereotype.Service;
 import com.chungcu.services.OrderService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -31,4 +32,9 @@ public class OrderServiceImpl implements OrderService{
     public boolean addOrUpdateOrder(Order1 order) {
         return this.orderRepo.addOrUpdateOrder(order);  
     }
+
+    @Override
+    public List<Order1> getOrderByLockerId(int id) {
+        return this.orderRepo.getOrderByLockerId(id);
     }
+}

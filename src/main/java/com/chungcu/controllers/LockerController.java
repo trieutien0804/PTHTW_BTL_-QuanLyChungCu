@@ -95,9 +95,10 @@ public class LockerController {
         return "adminHome"; 
     }
     
-    @GetMapping("/addOrder")
-    public String addOrderView(Model model) {
-        model.addAttribute("order", new Order1());
+    @GetMapping("/addOrder/{id}")
+    public String addOrderView(Model model, @PathVariable(value = "id") int id ) {
+//        model.addAttribute("locker", lockerService.getLockerById(id));
+        
         return "addOrder"; 
     }
     
