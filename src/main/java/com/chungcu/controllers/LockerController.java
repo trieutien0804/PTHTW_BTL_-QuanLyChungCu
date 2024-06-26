@@ -97,8 +97,7 @@ public class LockerController {
     
     @GetMapping("/addOrder/{id}")
     public String addOrderView(Model model, @PathVariable(value = "id") int id ) {
-//        model.addAttribute("locker", lockerService.getLockerById(id));
-        
+        model.addAttribute("locker", lockerService.getLockerById(id));
         return "addOrder"; 
     }
     

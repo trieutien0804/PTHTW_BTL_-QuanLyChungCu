@@ -8,7 +8,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="<c:url value="/css/pages.css"/>" rel="stylesheet"/>
-${locker.order1Set.id}
+<c:forEach items="${locker.order1Set}" var="order">
+    <p class="card-text">${order.id}</p>
+</c:forEach>
 <!--<section class="container pt-3">
     <div class="bg-white w-100 border-bottom ">
         <div class="content-center p-3">
