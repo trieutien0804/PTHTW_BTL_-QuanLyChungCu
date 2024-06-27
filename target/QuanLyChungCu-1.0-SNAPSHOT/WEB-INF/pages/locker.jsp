@@ -15,6 +15,7 @@
 
         </div>
     </div>
+                    
     <div class="bg-white">
         <table class="table table-hover">
             <thead class="">
@@ -28,6 +29,13 @@
             <tbody >
                     <c:forEach items="${lockers}" var="locker">
                         <tr class="border-bottom">
+                            <div class="card" style="width: 10rem;">
+                                <img src="<c:url value="/images/google.png"/>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Card title</h5>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
                             <td class="border-end align-content-center">${locker.id}</td>
                             <td class="border-end align-content-center">${locker.residentId.name}</td>
                             <td class="border-end align-content-center">${locker.lockerNumber}</td>
