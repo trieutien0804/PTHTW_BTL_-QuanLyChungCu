@@ -33,7 +33,7 @@
                             <td class="border-end align-content-center">${locker.lockerNumber}</td>
                             <td class="text-center">   
                                 
-                                <a href="<c:url value="/admin/addOrder/${locker.id}"/> " type="button" class="btn btn-navy rounded-pill">...</a>
+                                <a href="<c:url value="/admin/order/${locker.id}"/> " type="button" class="btn btn-navy rounded-pill">...</a>
 
                             </td>
                         </tr>

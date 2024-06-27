@@ -54,24 +54,6 @@
         <a href="<c:url value="/admin/feedback"/>" class="text-decoration-none px-3 py-2 d-block">
             <i class="fal fa-users"></i>Đánh giá
         </a>
-    </li>
-    <li class="border-bot">
-        <a href="#" class="text-decoration-none px-3 py-2 d-block">
-            <i class="fal fa-users"></i>Biểu đồ thống kê
-        </a>
-    </li>
-    <li class="border-bot">
-        <a href="#" class="text-decoration-none px-3 py-2 d-block">
-            <i class="fal fa-users"></i>Nhắn tin
-        </a>
-    </li>
-</ul>
-
-<ul class="list-unstyled px-2 border-right" style="margin-bottom: 0">
-    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars"></i>
-            Settings</a></li>
-    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bell"></i>
-            Notifications</a></li>
 </ul>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

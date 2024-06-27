@@ -103,10 +103,20 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/deleteLocker.jsp" />
     </definition>
+    <definition name="order" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý tủ đồ | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/order.jsp" />
+    </definition>
     <definition name="addOrder" extends="baseLayout">
-        <put-attribute name="title" value="Quản lý căn hộ | Chung cư ABC - Admin" />
+        <put-attribute name="title" value="Quản lý tủ đồ | Chung cư ABC - Admin" />
         <put-attribute name="content"
                        value="/WEB-INF/pages/addOrder.jsp" />
+    </definition>
+    <definition name="confirmTakeOrder" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý tủ đồ | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/confirmTakeOrder.jsp" />
     </definition>
     <definition name="feedback" extends="baseLayout">
         <put-attribute name="title" value="Quản lý đánh giá | Chung cư ABC - Admin" />

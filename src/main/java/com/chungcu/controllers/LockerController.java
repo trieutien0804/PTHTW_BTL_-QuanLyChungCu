@@ -36,15 +36,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @PropertySource("classpath:configs.properties")
 
 public class LockerController {
-    
+
     @Autowired
     private LockerService lockerService;
     @Autowired
     private OrderService orderService;
-    
+
     @Autowired
     private Environment env;
-    
+
     @GetMapping("/locker")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String lockerView(Model model, @RequestParam Map<String, String> params) {
@@ -57,28 +57,30 @@ public class LockerController {
         model.addAttribute("lockers", locker);
         return "locker";
     }
+
     @GetMapping("/addLocker")
     public String addLockerView(Model model) {
         model.addAttribute("locker", new Locker());
         return "addLocker";
     }
-    
-    
+
     @PostMapping("/addLocker")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addLocker(@ModelAttribute(value = "locker") @Valid Locker locker, BindingResult result) {
-        if(!result.hasErrors()){
-            if(lockerService.addOrUpdateLocker(locker) == true){
+        if (!result.hasErrors()) {
+            if (lockerService.addOrUpdateLocker(locker) == true) {
                 return "redirect:/admin/locker";
             }
         }
         return "addLocker";
     }
+
     @GetMapping("/addLocker/{id}")
     public String updateView(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("locker", this.lockerService.getLockerById(id));
         return "addLocker";
     }
+
     @GetMapping("deleteLocker/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteLocker(@PathVariable(value = "id") int lockerId, Model model) {
@@ -92,39 +94,45 @@ public class LockerController {
         if (lockerService.deleteLocker(locker.getId()) == true) {
             return "redirect:/admin/locker";
         }
-        return "adminHome"; 
+        return "adminHome";
     }
-    
-    @GetMapping("/addOrder/{id}")
-    public String addOrderView(Model model, @PathVariable(value = "id") int id ) {
+
+    @GetMapping("/order/{id}")
+    public String OrderView(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("locker", lockerService.getLockerById(id));
-        return "addOrder"; 
+        return "order";
     }
-    
+
+    @GetMapping("/addOrder/{id}")
+    public String addOrderView(Model model, @PathVariable(value = "id") int id) {
+        model.addAttribute("lockerId", id);
+        model.addAttribute("order", new Order1());
+        return "addOrder";
+    }
+
     @PostMapping("/addOrder")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String addOrder(@ModelAttribute(value = "order") @Valid Order1 order, BindingResult result) {
-        if(!result.hasErrors()){
-            if(orderService.addOrder(order) == true){
-                return "redirect:/admin/locker";
-            }
+    public String addOrder(@ModelAttribute(value = "order") Order1 order) {
+        if (orderService.addOrUpdateOrder(order) == true) {
+            return "redirect:/admin/locker";
         }
         return "addOrder";
     }
-//    @PostMapping("/addOrder")
-//    public String addOrder(@ModelAttribute("order") @Valid Order1 order, 
-//                           BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-//        if (bindingResult.hasErrors()) { // Nếu có lỗi validation
-//            return "addOrder"; // Quay lại trang thêm đơn hàng, hiển thị lỗi
-//        }
-//        try {
-//            orderService.addOrder(order); // Gọi service để thêm đơn hàng vào cơ sở dữ liệu
-//            redirectAttributes.addFlashAttribute("successMsg", "Thêm đơn hàng thành công!");
-//        } catch (Exception e) {
-//            redirectAttributes.addFlashAttribute("errorMsg", "Có lỗi xảy ra khi thêm đơn hàng!");
-//        }
-//
-//        return "redirect:/admin/locker"; 
-//    }
-
+    
+    @GetMapping("/confirmTakeOrder/{id}")
+    public String confirmTakeOrder(Model model, @PathVariable(value = "id") int id) {
+        model.addAttribute("order", orderService.getOrderById(id));
+        return "confirmTakeOrder";
+    }
+    
+    @PostMapping("/confirmTakeOrder/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String updateStatusOrder(@PathVariable(value = "id") int id) {
+        Order1 updateOrder =  orderService.getOrderById(id);
+        updateOrder.setStatus("Đã nhận hàng");
+        if (orderService.addOrUpdateOrder(updateOrder) == true) {
+            return "redirect:/admin/locker";
+        }
+        return "addOrder";
+    }
 }

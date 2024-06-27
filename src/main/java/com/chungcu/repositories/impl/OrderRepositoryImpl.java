@@ -49,6 +49,7 @@ public class OrderRepositoryImpl implements OrderRepository{
         Session session = this.factory.getObject().getCurrentSession();
         try {
             if (order.getId() == null) {
+                order.setStatus("Chưa nhận hàng");
                 session.save(order);
             } else {
                 session.update(order);
@@ -78,6 +79,13 @@ public class OrderRepositoryImpl implements OrderRepository{
             return orders;
 
  
+    }
+
+    @Override
+    public Order1 getOrderById(int id) {
+        Session s = this.factory.getObject().getCurrentSession();
+        Order1 order = s.get(Order1.class, id);
+        return order;
     }
     
 }
