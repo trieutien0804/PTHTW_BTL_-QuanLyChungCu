@@ -19,4 +19,5 @@ public interface UserRepositories {
     boolean checkUniqueUsername(String username);
     User getUserById(int id);
     boolean updateUser(User user);
+    boolean deleteUser(int userId);
 }

@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.chungcu.pojo;
-
-import com.chungcu.validator.ApartmentNumber;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -48,7 +46,6 @@ public class Apartment implements Serializable {
     private Integer id;
     @Basic(optional = false)
     //@Size(min = 1, max = 50)\
-    @ApartmentNumber(message = "{apartment.number.isExistErr}")
     @Column(name = "apartment_number")
     @NotNull
     @Pattern(regexp = "^\\d{3}$", message = "{apartment.number.inputErr}")

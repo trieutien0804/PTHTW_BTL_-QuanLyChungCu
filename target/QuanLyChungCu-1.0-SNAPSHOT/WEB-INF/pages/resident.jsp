@@ -46,8 +46,7 @@
                         <td class="border-end align-content-center">${row[5]}</td>
                         <td class="border-end align-content-center">${row[6]}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-navy rounded-pill">Cập nhật</a>
-                            <button type="button" class="btn btn-danger rounded-pill">Xóa</button>
+                            <a href="<c:url value="/admin/deleteUser/${row[2]}"/>" type="button" class= "btn btn-navy rounded-pill">Xóa</a>
                         </td>
                     </tr>
                 </c:forEach>
