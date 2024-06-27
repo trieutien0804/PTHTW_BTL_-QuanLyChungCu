@@ -17,7 +17,7 @@
             <div class>
 <!--                <img src="<c:url value="/images/logo.png"/>" alt="Avatar" class="rounded-circle me-2 ms-2">-->
             </div>
-            <a class="navbar-brand text-main"  href="">T&D Building Admin</a>
+            <a class="navbar-brand text-main"  href="">TECH BUILDING Admin</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right me-3">

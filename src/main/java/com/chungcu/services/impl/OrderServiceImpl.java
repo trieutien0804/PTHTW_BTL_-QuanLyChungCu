@@ -37,4 +37,9 @@ public class OrderServiceImpl implements OrderService{
     public List<Order1> getOrderByLockerId(int id) {
         return this.orderRepo.getOrderByLockerId(id);
     }
+
+    @Override
+    public Order1 getOrderById(int id) {
+        return this.orderRepo.getOrderById(id);
+    }
 }

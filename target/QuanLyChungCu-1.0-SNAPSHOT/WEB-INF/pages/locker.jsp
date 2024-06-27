@@ -16,34 +16,25 @@
         </div>
     </div>
                     
-    <div class="bg-white">
+    <div class="bg-white d-flex flex-wrap justify-content-around">
         <table class="table table-hover">
             <thead class="">
-                <tr>
-                    <th scope="col" class="text-center border-end" >Mã tủ đồ</th>
-                    <th scope="col" class="text-center border-end">Tên cư dân</th>
-                    <th scope="col" class="text-center border-end" >Số tủ đồ</th>
-                    <th scope="col" class="text-center ">Chức năng</th>
-                </tr>
+                
             </thead>
             <tbody >
                     <c:forEach items="${lockers}" var="locker">
                         <tr class="border-bottom">
                             <div class="card" style="width: 10rem;">
-                                <img src="<c:url value="/images/google.png"/>" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">Card title</h5>
-                                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                            <td class="border-end align-content-center">${locker.id}</td>
-                            <td class="border-end align-content-center">${locker.residentId.name}</td>
-                            <td class="border-end align-content-center">${locker.lockerNumber}</td>
-                            <td class="text-center">   
-                                
-                                <a href="<c:url value="/admin/addOrder/${locker.id}"/> " type="button" class="btn btn-navy rounded-pill">...</a>
-
-                            </td>
+                                <img src="<c:url value="/images/lockernew.png"/>" class="card-img-top" alt="...">
+<!--                                <div class="bg-gray card-body d-flex align-items-center justify-content-between"> 
+                                    <div class="d-inline-block">
+                                        <h5 class="card-text bold">${locker.lockerNumber}</h5>
+                                    </div>      
+                                    <div class="d-inline-block">
+                                        <a href="<c:url value="/admin/order/${locker.id}"/>" class="btn btn-navy">...</a>
+                                    </div>
+                                </div>-->
+                            </div>          
                         </tr>
                     </c:forEach>
             </tbody>

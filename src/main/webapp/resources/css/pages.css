@@ -28,3 +28,9 @@ body {
     border-color: #FFC107;
     border-radius: 2rem;
 }
+.bg-gray{
+   background-color: #EEEEEE; 
+}
+.gap-10{
+    gap: 10px;
+}

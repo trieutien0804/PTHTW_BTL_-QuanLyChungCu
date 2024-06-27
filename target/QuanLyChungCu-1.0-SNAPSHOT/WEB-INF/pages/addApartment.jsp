@@ -30,7 +30,7 @@
                         </c:choose>
                     </button>
                     <form:hidden path="id" />
-                    <a type="button" class="btn btn-light mt-1 rounded-pill" href="<c:url value="/admin/apartment" />">Quay về</a>
+                    <a type="button" class="btn btn-light mt-1 rounded-pill" href="<c:url value="/admin/apartment"/>" >Quay về</a>
                 </div>
             </form:form>
         </div>

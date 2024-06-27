@@ -24,6 +24,7 @@ com\chungcu\repositories\impl\UserRepositoryImpl.class
 com\chungcu\services\impl\OrderServiceImpl.class
 com\chungcu\validator\ApartmentNumber.class
 com\chungcu\configs\PaymentVNPayConfig.class
+com\chungcu\formatters\LockerFormatter.class
 com\chungcu\pojo\Survey_.class
 com\chungcu\dto\DTOAddResident.class
 com\chungcu\services\impl\BillServiceImpl.class
