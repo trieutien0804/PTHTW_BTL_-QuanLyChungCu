@@ -113,8 +113,9 @@ public class LockerController {
     @PostMapping("/addOrder")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addOrder(@ModelAttribute(value = "order") Order1 order) {
+        int id = order.getLockerId().getId();
         if (orderService.addOrUpdateOrder(order) == true) {
-            return "redirect:/admin/locker";
+            return "redirect:/admin/order/" + id;
         }
         return "addOrder";
     }

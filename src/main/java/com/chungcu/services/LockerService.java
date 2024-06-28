@@ -19,4 +19,5 @@ public interface LockerService {
     boolean addOrUpdateLocker(Locker locker);
     boolean deleteLocker(int lockerId);
     Locker getLockerById(int id);
+    Locker getLockerByResidentId(int residentId);
 }

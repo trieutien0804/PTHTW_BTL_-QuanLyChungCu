@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.chungcu.pojo;
+
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;

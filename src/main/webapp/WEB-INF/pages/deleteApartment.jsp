@@ -9,8 +9,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:url value="/admin/deleteApartment" var="action" />
-<section class="container pt-3">
-    <div class="card">
+<section class="container p-3 d-flex justify-content-center">
+    <div class="card w-50">
         <h5 class="card-header">
             Bạn có muốn xóa căn hộ này không?
         </h5>
@@ -19,12 +19,13 @@
             <c:forEach items="${apartment.residentSet}" var="residents">
                 <p class="card-text">${residents.name}</p>
             </c:forEach>
-
+        </div>  
+        <div class="p-3 d-flex justify-content-end g-5">
             <form:form method="post" action="${action}" modelAttribute="apartment">
-                <button type="submit" class="btn btn-danger">Xóa</button>
+                <button type="submit" class="btn btn-danger me-3 rounded-pill">Xóa</button>
                 <form:hidden path = "id" value = "${apartment.id}"/>
             </form:form>
-            <a type="button" class="btn btn-light" href="<c:url value="/admin/apartment" />">Quay về</a>
+            <a type="button" class="btn btn-light rounded-pill" href="<c:url value="/admin/apartment" />">Quay về</a>
         </div>
     </div>
 </section>

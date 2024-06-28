@@ -9,14 +9,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="<c:url value="/css/pages.css"/>" rel="stylesheet"/>
 
-<section class="container pt-3">
+<section class="m-3 w-100">
     <div class="bg-white w-100 border-bottom ">
         <div class="content-center p-3">
             <h1 class="modal-title fw-bold">Thêm tủ đồ</h1>
         </div>
         <div class=" p-3">
+            
             <c:url value="/admin/addLocker" var="action" />
             <form:form method="post" action="${action}" modelAttribute="locker">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
                 <div class="form-floating mb-3">
                     <form:input class="form-control"  id="lockerNumber"  placeholder="Số tủ đồ" path="lockerNumber" />
                     <label for="name">Số tủ đồ</label>

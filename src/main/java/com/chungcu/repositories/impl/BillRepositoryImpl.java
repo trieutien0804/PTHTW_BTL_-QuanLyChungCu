@@ -4,6 +4,8 @@
  */
 package com.chungcu.repositories.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import com.chungcu.pojo.Bill;
 import com.chungcu.pojo.Resident;
 import com.chungcu.repositories.BillRepository;
@@ -82,6 +84,9 @@ public class BillRepositoryImpl implements BillRepository {
         Session session = this.factory.getObject().getCurrentSession();
         try {
             if (bill.getId() == null) {
+                bill.setPaymentStatus("Chua thanh toan");
+                Date date = new Date();
+                bill.setCreatedAt(date);
                 session.save(bill);
             } else {
                 session.update(bill);

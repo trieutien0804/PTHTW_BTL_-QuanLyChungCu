@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author ptdzu
  */
 @Entity
+
 @Table(name = "order1")
 @XmlRootElement
 @NamedQueries({

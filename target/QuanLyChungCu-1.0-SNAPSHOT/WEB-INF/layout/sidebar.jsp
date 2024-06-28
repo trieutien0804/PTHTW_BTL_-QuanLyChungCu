@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link href="<c:url value="/css/sidebar.css" />" rel="stylesheet"/>
 
-<div class="header-box px-2 pt-3 pb-3 d-flex justify-content-between border-right border-bot">
+<div class="header-box px-2 pt-3 pb-3 d-flex justify-content-between  border-bot">
     <div class="d-flex align-items-center fs-4">
         <div class="rounded me-2">
             <img src="<c:url value="/images/user.png"/>" alt="Avatar" class="rounded-circle me-2 ms-2">   
@@ -19,7 +19,7 @@
 
 </div>
 
-<ul class="list-unstyled  text-dark border-right" style="margin-bottom: 0">
+<ul class="list-unstyled  text-dark " style="margin-bottom: 0">
 
     <li class="border-bot">
         <a href="<c:url value="/admin/apartment"/>" class="text-decoration-none px-3 py-2 d-block">
