@@ -4,7 +4,6 @@ import cookie from "react-cookies";
 import { Navigate } from "react-router-dom";
 import { MyUserContext } from "../App";
 import Apis, { authApi, endpoints } from "../configs/Apis";
-import Table from 'react-bootstrap/Table';
 
 const Login = () => {
     const [user, dispatch] = useContext(MyUserContext);
@@ -90,8 +89,9 @@ const Login = () => {
     return <>
         <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div style={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
-                <h1 className="text-center text-info">Đăng nhập</h1>
+                <h1 className="text-center text-info">Đăng nhập</h1>         
                 <Form onSubmit={login}>
+                {error && <Alert variant="danger">{error}</Alert>}
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Tên đăng nhập</Form.Label>
                         <Form.Control value={username} onChange={e => setUsername(e.target.value)} type="text" placeholder="Nhập đăng nhập" />
