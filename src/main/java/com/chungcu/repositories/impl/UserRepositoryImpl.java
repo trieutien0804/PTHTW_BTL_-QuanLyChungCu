@@ -128,4 +128,17 @@ public class UserRepositoryImpl implements UserRepositories {
             return false;
         }
     }
+
+    @Override
+    public boolean deleteUser(int userId) {
+        try {
+            Session s = this.factory.getObject().getCurrentSession();
+            User user = this.getUserById(userId);
+            s.delete(user);
+            return true;
+        } catch (HibernateException ex) {
+            System.err.print(ex.getMessage());
+            return false;
+        }
+    }
 }

@@ -10,7 +10,6 @@ com\chungcu\repositories\impl\ResidentRepositoryImpl.class
 com\chungcu\pojo\Surveyanswer.class
 com\chungcu\configs\TilesConfig.class
 com\chungcu\pojo\Apartment_.class
-com\chungcu\validator\ApartmentNumberValidator.class
 com\chungcu\configs\JwtSecurityConfig.class
 com\chungcu\repositories\FeedbackRepository.class
 com\chungcu\pojo\Surveyanswer_.class
@@ -22,7 +21,6 @@ com\chungcu\filters\JwtAuthenticationTokenFilter.class
 com\chungcu\repositories\BillRepository.class
 com\chungcu\repositories\impl\UserRepositoryImpl.class
 com\chungcu\services\impl\OrderServiceImpl.class
-com\chungcu\validator\ApartmentNumber.class
 com\chungcu\configs\PaymentVNPayConfig.class
 com\chungcu\formatters\LockerFormatter.class
 com\chungcu\pojo\Survey_.class

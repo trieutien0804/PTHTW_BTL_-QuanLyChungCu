@@ -89,23 +89,18 @@ public class ResidentController {
         return "addResident";
     }
 
-//    @GetMapping("deleteResident/{id}")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
-//    public String deleteSurvey(@PathVariable(value = "id") int residentId, Model model) {
-//        DTOAddResident addResident = new DTOAddResident();
-//        addResident.setUser(userService.getUserByResidentId(residentId));
-//        addResident.setResident(residentService.getResidentById(residentId));
-//        addResident.setLocker(lockerService.getLockerByResidentId(residentId));
-//        model.addAttribute("deleteResident", addResident);
-//        return "deleteResident";
-//    }
-
-//    @PostMapping("deleteApartment")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
-//    public String submitDeleteSurvey(@ModelAttribute(value = "apartment") Apartment apartment) {
-//        if (apartmentService.deleteApartment(apartment.getId()) == true) {
-//            return "redirect:/admin/apartment";
-//        }
-//        return "adminHome";
-//    }
+    @GetMapping("/deleteUser/{username}")
+    public String deleteUser(@PathVariable(value = "username") String username, Model model) {
+        model.addAttribute("user", userService.getUserByUsername(username));
+        return "deleteUser";
+    }
+    
+    @PostMapping("deleteUser")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String submitDeleteUser(@ModelAttribute(value = "apartment") User user) {
+        if (userService.deleteUser(user.getId()) == true) {
+            return "redirect:/admin/resident";
+        }
+        return "adminHome";
+    }
 }

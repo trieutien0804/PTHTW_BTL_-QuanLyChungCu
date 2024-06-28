@@ -7,8 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="<c:url value="/css/header.css" />" rel="stylesheet"/>
-<nav class="navbar navbar-expand-sm custom-navbar " >
-
+<nav class="navbar navbar-expand-sm custom-navbar shadow " >
     <div class="d-flex justify-content-between p-2 w-100">
         <div class="rounded content-center">
             <img src="<c:url value="/images/logo70px.png"/>" alt="Avatar" class="ms-2">   

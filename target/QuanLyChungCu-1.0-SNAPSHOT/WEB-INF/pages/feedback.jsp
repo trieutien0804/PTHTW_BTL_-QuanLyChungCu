@@ -18,7 +18,6 @@
                     <img src="<c:url value="/images/search.png"/>" alt="Avatar" class="">   
                 </button>
             </form>
-            <a href="<c:url value="/admin/addFeedback"/>" type="button" class= "btn btn-navy rounded-pill">Thêm căn hộ</a>
         </div>
     </div>
     <div class="bg-white p-4">

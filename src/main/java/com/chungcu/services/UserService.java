@@ -32,4 +32,6 @@ public interface UserService extends UserDetailsService {
     User getUserById(int id);
     
     boolean updateFirstLogin(User user);
+    
+    boolean deleteUser(int userId);
 }

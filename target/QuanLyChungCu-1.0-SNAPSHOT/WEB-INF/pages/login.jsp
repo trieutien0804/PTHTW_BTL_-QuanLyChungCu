@@ -23,7 +23,7 @@
                         <img src="<c:url value="/images/logo-name.png"/>"
                              class="img-fluid" alt="Sample image">
                     </div>
-                    <div class="col-md-8 col-lg-6 col-xl-4 bg-white p-4 rounded-9">
+                    <div class="col-md-8 col-lg-6 col-xl-4 bg-white p-4 rounded-9 shadow">
                         <c:url value="/login" var="action" />
                         <form method="post" action="${action}">
 
