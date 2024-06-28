@@ -8,10 +8,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="<c:url value="/css/pages.css"/>" rel="stylesheet"/>
-<div class="section">
-    <h1>TỦ ĐỒ: ${locker.lockerNumber}</h1>
-    <a href="<c:url value="/admin/addOrder/${locker.id}"/>" type="button" class= "btn btn-navy rounded-pill">Thêm đơn hàng mới</a>
-    <div class="row">
+<section class="m-3 w-100">
+    <div class="bg-white w-100 border-bottom ">
+        <div class="bg-white w-100 border-bottom ">
+            <div class="d-flex justify-content-between p-3">
+                <lable class="fs-3">TỦ ĐỒ: ${locker.lockerNumber}</lable>
+                <a href="<c:url value="/admin/addOrder/${locker.id}"/>" type="button" class= "btn btn-navy rounded-pill">Thêm đơn hàng mới</a>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white p-5 d-flex flex-wrap custom-row justify-content-between">
         <c:forEach items="${locker.order1Set}" var="order1">
             <div class="col-12 col-md-4">
                 <div class="card" style="width: 20rem;">
@@ -29,10 +35,11 @@
                             </c:choose>
                         </p>
                         <p class="card-text">Tạo lúc: ${order1.createdAt}</p>
-                        <a type="button" href="<c:url value="/admin/confirmTakeOrder/${order1.id}" />" class="btn btn-primary">Xác nhận nhận hàng</a>
+                        <a type="button" href="<c:url value="/admin/confirmTakeOrder/${order1.id}" />" class="btn btn-gold">Xác nhận nhận hàng</a>
                     </div>
                 </div>
             </div>
         </c:forEach>
     </div>
-</div>
+
+</section>

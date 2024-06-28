@@ -7,7 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="<c:url value="/css/pages.css"/>" rel="stylesheet"/>
-<section class="container pt-3">
+<section class="m-3 w-100">
     <div class="bg-white w-100 border-bottom ">
         <div class="d-flex justify-content-between p-3">
             <c:url value="/admin/bill" var="action"/>
@@ -20,9 +20,9 @@
             <a href="<c:url value="/admin/addBill"/>" type="button" class= "btn btn-navy rounded-pill">Thêm hóa đơn</a>
         </div>
     </div>
-    <div class="bg-white">
+    <div class="bg-white p-4">
         <table class="table table-hover">
-            <thead class="">
+            <thead class="border">
                 <tr>
                     <th scope="col" class="text-center border-end" >Mã hoá đơn</th>
                     <th scope="col" class="text-center border-end">Mã cư dân</th>
@@ -35,7 +35,7 @@
                     <th scope="col" class="text-center ">Chức năng</th>
                 </tr>
             </thead>
-            <tbody >
+            <tbody class="border">
                 <c:forEach items="${bills}" var="bill">
                     <tr class="border-bottom">
                         <td class="border-end align-content-center">${bill.id}</td>
@@ -54,7 +54,7 @@
                 </c:forEach>
             </tbody>
         </table>
-        <ul class="pagination ms-2">
+        <ul class="pagination ms-auto justify-content-end">
             <c:forEach begin="1" end="${counter}" var="i">
                 <c:url value="${currentUrl}" var="pageAction">
                     <c:param name="kw" value="${param.kw}" /> 

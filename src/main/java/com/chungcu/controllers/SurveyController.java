@@ -58,16 +58,15 @@ public class SurveyController {
     @GetMapping("deleteSurvey/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteSurvey(@PathVariable(value = "id") int surveyId, Model model) {
-        model.addAttribute("survey", new Survey(surveyId));
+        model.addAttribute("survey", surveyService.getSurveyById(surveyId));
         return "deleteSurvey";
     }
 
     @PostMapping("deleteSurvey")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String submitDeleteSurvey(@ModelAttribute(value = "survey") Survey survey) {
-        System.out.print(survey.getId());
         if (surveyService.deleteSurvey(survey.getId()) == true) {
-            return "redirect:/admin/survey";
+            return "redirect:/admin/survey";    
         }
         return "adminHome";
     }
@@ -77,5 +76,10 @@ public class SurveyController {
     public String surveyQuestionView(@PathVariable(value = "id") int surveyId, Model model) {
         model.addAttribute("questions", questionService.getAllSurveyQuestionById(surveyId));
         return "surveyQuestion";
+    }
+    @GetMapping("/add/{id}")
+    public String updateSurveyView(Model model, @PathVariable(value = "id") int id) {
+        model.addAttribute("bill", this.surveyService.getSurveyById(id));
+        return "addBill";
     }
 }

@@ -18,3 +18,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 h1{
     color: #0d6efd;
 }
+.bg-theme-color{
+    background-color: #104358;
+}
+.text-gold{
+    color: #BE9369;
+}
+.text-navy{
+    color: #104358;
+}
+.btn-gold{
+    color: #fff;
+    background-color: #BE9369;
+    border-color: #BE9369;
+}
+.rounded-9{
+    border-radius: .9rem !important;
+}

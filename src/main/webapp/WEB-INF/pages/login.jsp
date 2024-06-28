@@ -16,29 +16,28 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </head>
     <body>  
-        <section class="vh-100">
+        <section class="vh-100 bg-theme-color">
             <div class="container-fluid h-custom">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-md-9 col-lg-6 col-xl-5">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                        <img src="<c:url value="/images/logo-name.png"/>"
                              class="img-fluid" alt="Sample image">
                     </div>
-                    <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <div class="col-md-8 col-lg-6 col-xl-4 bg-white p-4 rounded-9">
                         <c:url value="/login" var="action" />
                         <form method="post" action="${action}">
-                            <!-- Email input -->
-                            <h1>Đăng nhập</h1>
+
+                            <h1 class="text-gold text-center fw-bold">ĐĂNG NHẬP</h1>
 
                             <div data-mdb-input-init class="form-outline mb-4 mt-3">
-                                <label class="form-label a" for="username">Tài khoản</label>
-                                <input id="username" name="username" class="form-control form-control-lg"
+                                <label class="form-label a text-navy" for="username">Tài khoản</label>
+                                <input id="username" name="username" class="form-control form-control-lg rounded-9"
                                        placeholder="Nhập tên đăng nhập" />                                
                             </div>
 
-                            <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-3">
-                                <label class="form-label" for="password">Mật khẩu</label>
-                                <input type="password" name="password" id="password" class="form-control form-control-lg"
+                                <label class="form-label text-navy fs-6" for="password">Mật khẩu</label>
+                                <input type="password" name="password" id="password" class="rounded-9 form-control form-control-lg"
                                        placeholder="Mật khẩu của bạn" />
                             </div>
                             <c:if test="${param.error != null}">
@@ -46,9 +45,11 @@
                                     Vui lòng nhập thông tin chính xác!
                                 </div>
                             </c:if>
-                            <div class="text-center text-lg-start mt-4 pt-2">
-                                <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
-                                         style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng nhập</button>
+                            <div class="d-flex justify-content-end">
+                                <div class="text-lg-start mt-4 pt-2">
+                                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="rounded-9 btn btn-gold btn-lg"
+                                             style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng nhập</button>
+                                </div>
                             </div>
                         </form>
                     </div>

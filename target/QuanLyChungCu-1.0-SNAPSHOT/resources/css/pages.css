@@ -1,5 +1,5 @@
 body {
-    font-family: 'Lato', sans-serif; /* Hoặc font khác hỗ trợ tiếng Việt */
+    font-family: 'Noto Sans', sans-serif; /* Hoặc font khác hỗ trợ tiếng Việt */
 }
 .content-center{
     display: flex;
@@ -33,4 +33,15 @@ body {
 }
 .gap-10{
     gap: 10px;
+}
+.btn-gold{
+    color: #fff;
+    background-color: #BE9369;
+    border-color: #BE9369;
+}
+.custom-row {
+    row-gap: 20px;
+}
+.custom-col{
+    column-gap: 20px;
 }

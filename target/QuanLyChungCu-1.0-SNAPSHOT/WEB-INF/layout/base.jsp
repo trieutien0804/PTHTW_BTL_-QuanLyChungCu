@@ -14,10 +14,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><tiles:insertAttribute name="title" /></title>
     </head>
-    <body style="font-family: 'Lato', sans-serif">
+    <body>
         <tiles:insertAttribute name="header" />
         <div class="main-container d-flex" style="background-color: #E5E6F0">
-            <div class="sidebar" style="background-color: #EEEEEE; border-right: black" id="side_nav">
+            <div class=" bg-white sidebar border-right" id="side_nav">
                 <tiles:insertAttribute name="sidebar" />
             </div>    
             <tiles:insertAttribute name="content" />

@@ -7,7 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="<c:url value="/css/pages.css"/>" rel="stylesheet"/>
-<section class="container pt-3">
+<section class="m-3 w-100">
     <div class="bg-white w-100 border-bottom ">
         <div class="d-flex justify-content-between p-3">
 
@@ -21,9 +21,9 @@
 
         </div>
     </div>
-    <div class="bg-white">
+    <div class="bg-white p-4">
         <table class="table table-hover">
-            <thead class="">
+            <thead class="border">
                 <tr>
                     <th scope="col" class="text-center border-end">ID</th>
                     <th scope="col" class="text-center border-end">Name</th>   
@@ -35,7 +35,7 @@
                     <th scope="col" class="text-center ">Chức năng</th>
                 </tr>
             </thead>
-            <tbody >
+            <tbody class="border" >
                 <c:forEach items="${residentDetails}" var="row">
                     <tr class="border-bottom">
                         <td class="border-end align-content-center">${row[0]}</td> 
@@ -53,42 +53,19 @@
                 </c:forEach>
             </tbody>
         </table>
+        <ul class="pagination ms-2 justify-content-end">
+            <c:forEach begin="1" end="${counter}" var="i">
+                <c:url value="/admin/resident" var="pageAction">
+                    <c:param name="kw" value="${param.kw}" /> 
+                    <c:param name="page" value="${i}" />
+                </c:url>
+                <li class="page-item">
+                    <a class="page-link" href="${pageAction}">${i}</a>
+                </li>
+            </c:forEach>
+        </ul>
     </div>
-    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="updateModalLabel">Cập nhật căn hộ</h5>
-                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="updateForm">
-                        <input type="hidden" id="apartmentId" name="apartmentId">
-                        <div class="mb-3">
-                            <label for="apartmentNumber" class="form-label">Số căn hộ</label>
-                            <input type="text" class="form-control" id="apartmentNumber" name="apartmentNumber">
-                        </div>
-                        <div class="mb-3">
-                            <label for="status" class="form-label">Trạng thái</label>
-                            <input type="text" class="form-control" id="status" name="status">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <ul class="pagination ms-2">
-        <c:forEach begin="1" end="${counter}" var="i">
-            <c:url value="/admin/resident" var="pageAction">
-                <c:param name="kw" value="${param.kw}" /> 
-                <c:param name="page" value="${i}" />
-            </c:url>
-            <li class="page-item">
-                <a class="page-link" href="${pageAction}">${i}</a>
-            </li>
-        </c:forEach>
-    </ul>
+    
+    
 </section>
 

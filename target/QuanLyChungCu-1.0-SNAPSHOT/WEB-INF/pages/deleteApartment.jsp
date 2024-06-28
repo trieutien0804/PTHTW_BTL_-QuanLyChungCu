@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:url value="/admin/deleteApartment" var="action" />
-<section class="container pt-3">
+<section class="m-3 w-100">
     <div class="card">
         <h5 class="card-header">
             Bạn có muốn xóa căn hộ này không?

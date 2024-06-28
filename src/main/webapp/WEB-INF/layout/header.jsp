@@ -11,13 +11,10 @@
 
     <div class="d-flex justify-content-between p-2 w-100">
         <div class="rounded content-center">
-            <img src="<c:url value="/images/menu.png"/>" alt="Avatar" class="ms-2">   
+            <img src="<c:url value="/images/logo70px.png"/>" alt="Avatar" class="ms-2">   
         </div>
-        <div class="navbar-header content-center me-auto">
-            <div class>
-<!--                <img src="<c:url value="/images/logo.png"/>" alt="Avatar" class="rounded-circle me-2 ms-2">-->
-            </div>
-            <a class="navbar-brand text-main"  href="">TECH BUILDING Admin</a>
+        <div class="content-center me-auto">
+            <a  href="" class="navbar-brand text-white fw-bold fs-3 ms-2" >TECH BUILDING Admin</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right me-3">
