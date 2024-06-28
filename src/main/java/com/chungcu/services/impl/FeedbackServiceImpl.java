@@ -25,5 +25,10 @@ public class FeedbackServiceImpl implements FeedbackService{
     public List<Feedback> getAllFeedback() {
         return this.feedbackRepo.getAllFeedback();
     }
+
+    @Override
+    public boolean addOrUpdateFeedback(Feedback feedback) {
+        return this.feedbackRepo.addOrUpdateFeedback(feedback);
+    }
     
 }

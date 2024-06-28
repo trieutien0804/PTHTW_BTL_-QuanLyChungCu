@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface FeedbackService {
     List<Feedback> getAllFeedback();
+    boolean addOrUpdateFeedback(Feedback feedback);
+
 }

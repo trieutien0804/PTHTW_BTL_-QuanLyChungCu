@@ -51,7 +51,7 @@
                     </tr>
                 </c:forEach>
             </tbody>
-        </table>
+        </table>        
         <ul class="pagination ms-2 justify-content-end">
             <c:forEach begin="1" end="${counter}" var="i">
                 <c:url value="/admin/resident" var="pageAction">

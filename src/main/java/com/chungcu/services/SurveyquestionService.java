@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface SurveyquestionService {
     List<Surveyquestion> getAllSurveyQuestionById(int surveyId);
+    boolean addSurveyQuestion(Surveyquestion question);
+
 }

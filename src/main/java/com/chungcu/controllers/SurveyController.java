@@ -45,14 +45,21 @@ public class SurveyController {
         model.addAttribute("newSurvey", new Survey());
         return "survey";
     }
+    @GetMapping("/addSurvey")
+    public String addSurveyView(Model model) {
+        model.addAttribute("survey", new Survey());
+        return "addSurvey";
+    }
+    
+    
 
     @PostMapping("/addSurvey")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String addSurvey(@ModelAttribute(value = "newSurvey") Survey survey) {
+    public String addSurvey(@ModelAttribute(value = "Survey") Survey survey) {
         if (surveyService.addSurvey(survey) == true) {
             return "redirect:/admin/survey";
         }
-        return "adminHome";
+        return "survey";
     }
 
     @GetMapping("deleteSurvey/{id}")
@@ -75,11 +82,31 @@ public class SurveyController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String surveyQuestionView(@PathVariable(value = "id") int surveyId, Model model) {
         model.addAttribute("questions", questionService.getAllSurveyQuestionById(surveyId));
+        model.addAttribute("surveyId" , surveyId);
         return "surveyQuestion";
     }
-    @GetMapping("/add/{id}")
-    public String updateSurveyView(Model model, @PathVariable(value = "id") int id) {
-        model.addAttribute("bill", this.surveyService.getSurveyById(id));
-        return "addBill";
+
+    
+    @GetMapping("/addQuestion/{id}")
+    public String addQuestionView(Model model, @PathVariable(value = "id") int id) {
+        model.addAttribute("surveyId", id);
+        model.addAttribute("question", new Surveyquestion());
+        return "addQuestion";
     }
+    @PostMapping("/addQuestion")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String addQuestion(@ModelAttribute(value = "question") Surveyquestion question) {
+        if (questionService.addSurveyQuestion(question) == true) {
+            return "redirect:/admin/survey";
+        }
+        return "addQuestion";
+    }
+//    @PostMapping("/addSurvey")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    public String addSurvey(@ModelAttribute(value = "Survey") Survey survey) {
+//        if (surveyService.addSurvey(survey) == true) {
+//            return "redirect:/admin/survey";
+//        }
+//        return "surveyQuestion";
+//    }
 }

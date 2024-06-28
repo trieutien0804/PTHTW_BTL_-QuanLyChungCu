@@ -13,4 +13,4 @@ ${survey.id}
 <form:form method="post" action="${action}" modelAttribute="survey">
     <button type="submit">Delete</button>
     <form:hidden path = "id" value = "${survey.id}"/>
-</form:form>
+</form:form>    

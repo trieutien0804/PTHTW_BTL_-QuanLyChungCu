@@ -123,4 +123,14 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/feedback.jsp" />
     </definition>
+    <definition name="addSurvey" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý cư dân | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/addSurvey.jsp" />
+    </definition>
+    <definition name="addQuestion" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý cư dân | Chung cư ABC - Admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/addQuestion.jsp" />
+    </definition>
 </tiles-definitions>

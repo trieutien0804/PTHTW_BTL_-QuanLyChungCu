@@ -25,5 +25,10 @@ public class SurveyquestionServiceImpl implements SurveyquestionService{
     public List<Surveyquestion> getAllSurveyQuestionById(int surveyId) {
         return questionRepo.getAllSurveyQuestionById(surveyId);
     }
+
+    @Override
+    public boolean addSurveyQuestion(Surveyquestion question) {
+        return questionRepo.addSurveyQuestion(question);
+    }
     
 }

@@ -47,7 +47,7 @@
                         <td class="border-end align-content-center">${bill.paymentStatus}</td>
                         <td class="border-end align-content-center">${bill.createdAt}</td>
                         <td class="text-center">   
-                            <a href="<c:url value="/admin/addBill/${bill.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>
+<!--                            <a href="<c:url value="/admin/addBill/${bill.id}" />" class="btn btn-navy rounded-pill">Cập nhật</a>-->
                             <a type="button" class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteBill/${bill.id}'/>">Xóa</a>
                         </td>
                     </tr>

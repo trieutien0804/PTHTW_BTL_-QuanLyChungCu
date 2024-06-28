@@ -6,9 +6,12 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link href="<c:url value="/css/pages.css"/>" rel="stylesheet"/>
 <section class="m-3 w-100">
     <div class="bg-white p-4">
+        <a href="<c:url value="/admin/addQuestion/${surveyId}"/>" type="button" class= "btn btn-navy rounded-pill">Thêm câu hỏi</a>
         <table class="table">
+            
             <thead class="border">
                 <tr>
                     <th scope="col" class="text-center border-end">Mã câu hỏi</th>

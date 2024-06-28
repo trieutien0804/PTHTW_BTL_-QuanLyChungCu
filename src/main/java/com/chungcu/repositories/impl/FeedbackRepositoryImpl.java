@@ -8,6 +8,7 @@ import com.chungcu.pojo.Feedback;
 import com.chungcu.repositories.FeedbackRepository;
 import java.util.List;
 import javax.persistence.Query;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -30,5 +31,21 @@ public class FeedbackRepositoryImpl implements FeedbackRepository {
         Session session = this.factory.getObject().getCurrentSession();
         Query q = session.createQuery("FROM Feedback");
         return q.getResultList();
+    }
+
+    @Override
+    public boolean addOrUpdateFeedback(Feedback feedback) {
+        Session session = this.factory.getObject().getCurrentSession();
+        try {
+            if (feedback.getId() == null) {
+                session.save(feedback);
+            } else {
+                session.update(feedback);
+            }
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 }

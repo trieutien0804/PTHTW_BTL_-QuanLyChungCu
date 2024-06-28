@@ -40,9 +40,8 @@
                         <td class="border-end align-content-center">${s.description}</td>
                         <td class="border-end align-content-center">${s.createdAt}</td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-navy rounded-pill">Cập nhật</a>
                             <a href="<c:url value="/admin/surveyQuestion/${s.id}"/>" class="btn btn-navy rounded-pill">Xem</a>
-                            <button type="button" class="btn btn-danger rounded-pill">Xóa</button>
+                            <a class="btn btn-danger rounded-pill" href="<c:url value='/admin/deleteSurvey/${s.id}'/>">Xóa</a>
                         </td>
                     </tr>
                 </c:forEach>
