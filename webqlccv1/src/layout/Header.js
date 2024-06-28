@@ -21,24 +21,11 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto" style={{ color: 'white' }}>
-                    <Link className="nav-link me-3 text-white" to= "/">Trang chủ</Link>
-                    <Nav.Link className="text-white" href="#link">Tủ đồ</Nav.Link>
-                    <Nav.Link className="text-white" href="#link">Phản hồi</Nav.Link>
-                    <Nav.Link className="text-white" href="#link">Khảo sát</Nav.Link>
-
-                    <NavDropdown title={<span className="text-white">Thanh toán dịch vụ</span>} id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Phí quản lý</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Phí gửi xe</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                    </NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown title={<span className="text-white">Đăng ký dịch vụ</span>} id="basic-nav-dropdown">
-                    <NavDropdown.Item className="text-white" href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item className="text-white" href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item className="text-white" href="#action/3.3">Something</NavDropdown.Item>
-                    </NavDropdown>
+                    <Link to="/user-bill">Thanh toán hóa đơn</Link>
+                    <Link to="/user-locker">Tủ đồ điện tử</Link>
+                    <Link to="/user-parking-card">Đăng ký thẻ gửi xe</Link>
+                    <Link to="/user-feedback">Phản ánh</Link>
+                    <Link to="/user-survey">Khảo sát</Link>
                 </Nav>
                 {user === null ? <Link variant="outline-secondary" className="nav-link me-2 text-white" to="/login">Đăng nhập</Link> : <>
                     <Link variant="outline-secondary" className="nav-link me-2 text-white" to="/resident">Chào {user.username}</Link>

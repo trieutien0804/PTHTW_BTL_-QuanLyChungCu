@@ -24,27 +24,7 @@
                     <div class="form-floating mb-3">
                     <form:input class="form-control"  id="amount"  placeholder="Số tiền" path="amount" />
                     <label for="name">Số tiền</label>
-                </div>
-                <div>
-                    <div class="form-floating mb-3">
-                    <form:input class="form-control"  id="dueDate"  placeholder="Ngày đáo hạn" path="dueDate" />
-                    <label for="name">Ngày đáo hạn</label>
-                </div>
-                <div>
-                    <div class="form-floating mb-3">
-                    <form:input class="form-control"  id="paymentMethod"  placeholder="Phương thức thanh toán" path="paymentMethod" />
-                    <label for="name">Phương thức thanh toán</label>
-                </div>
-                <div>
-                    <div class="form-floating mb-3">
-                    <form:input class="form-control"  id="paymentStatus"  placeholder="Tình trạng" path="paymentStatus" />
-                    <label for="name">Tình trạng</label>
-                </div>
-                <div>
-                    <div class="form-floating mb-3">
-                    <form:input class="form-control"  id="createdAt"  placeholder="Ngày tạo háo đơn" path="createdAt" />
-                    <label for="name">Ngày tạo hoá đơn</label>
-                </div>              
+                </div>            
                 <div class="form-floating">
                     <button class="btn btn-navy mt-1 rounded-pill" type="submit">
                         <c:choose>

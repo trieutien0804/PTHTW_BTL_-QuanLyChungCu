@@ -16,6 +16,11 @@
                     <label for="name">Nội dung câu hỏi</label>
                     <form:errors path="content" cssClass="text-danger" element="div"/>
                 </div>
+                <div class="form-floating mb-3">
+                    <label for="name">Ma khao sat</label>
+                    <form:input class="form-control"  id="surveyId"  placeholder="Mã khao sat" path="surveyId" value="${surveyId}" readonly="true"/>
+                </div>
+                
                 <div class="form-floating">
                     <button class="btn btn-navy mt-1 rounded-pill" type="submit">Thêm
                     </button>

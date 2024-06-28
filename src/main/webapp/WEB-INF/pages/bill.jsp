@@ -25,11 +25,9 @@
             <thead class="border">
                 <tr>
                     <th scope="col" class="text-center border-end" >Mã hoá đơn</th>
-                    <th scope="col" class="text-center border-end">Mã cư dân</th>
+                    <th scope="col" class="text-center border-end">Tên cư dân</th>
                     <th scope="col" class="text-center border-end" >loại hoá đơn</th>
                     <th scope="col" class="text-center border-end" >Số tiền</th>
-                    <th scope="col" class="text-center border-end">Ngày đáo hạn</th>
-                    <th scope="col" class="text-center border-end" >PT-thành toán</th>
                     <th scope="col" class="text-center border-end">Tình trạng</th>
                     <th scope="col" class="text-center border-end">Ngày tạo HĐ</th>
                     <th scope="col" class="text-center ">Chức năng</th>
@@ -42,8 +40,6 @@
                         <td class="border-end align-content-center">${bill.residentId.name}</td>
                         <td class="border-end align-content-center">${bill.type}</td>
                         <td class="border-end align-content-center">${bill.amount}</td>
-                        <td class="border-end align-content-center">${bill.dueDate}</td>
-                        <td class="border-end align-content-center">${bill.paymentMethod}</td>
                         <td class="border-end align-content-center">${bill.paymentStatus}</td>
                         <td class="border-end align-content-center">${bill.createdAt}</td>
                         <td class="text-center">   

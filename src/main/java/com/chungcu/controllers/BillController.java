@@ -91,6 +91,7 @@ public class BillController {
         if (billService.deleteBill(bill.getId()) == true) {
             return "redirect:/admin/bill";
         }
+
         return "adminHome";
     }
 }

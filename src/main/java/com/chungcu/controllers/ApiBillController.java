@@ -53,35 +53,12 @@ public class ApiBillController {
     @GetMapping(path = "/current-resident/", produces = MediaType.APPLICATION_JSON_VALUE)
     @CrossOrigin
     public ResponseEntity<?> getCurrentUser(
-            @RequestParam("id") int userId,
-            @RequestParam(value = "vnp_OrderInfo", required = false) String order,
-            @RequestParam(value = "vnp_ResponseCode", required = false) String responseCode) {
+            @RequestParam("id") int userId) {
 
         User u = this.userService.getUserById(userId);
         Resident resident = this.residentService.getResidentByUserId(u.getId());
         List<Bill> bills = billService.getBillsOfResident(resident.getId());
-        if (bills != null) {
-            if (order != null && responseCode != null) {
-                String billIdStr = order.split(":")[1];
-                int billId = Integer.parseInt(billIdStr);
-                DTOPaymentReturn dtoPaymentReturn = new DTOPaymentReturn();
-                if (responseCode.equals("00")) {
-                    dtoPaymentReturn.setStatus("Ok");
-                    dtoPaymentReturn.setMessage("Successfully");
-                    dtoPaymentReturn.setData(bills);
-                    Bill bill = billService.getBillById(billId);
-                    bill.setPaymentStatus("Da thanh toan");
-                    billService.addOrUpdateBill(bill);
-                    return new ResponseEntity<>(dtoPaymentReturn, HttpStatus.OK);
-                } else {
-                    dtoPaymentReturn.setStatus("No");
-                    dtoPaymentReturn.setMessage("Failed");
-                    dtoPaymentReturn.setData(bills);
-                    return new ResponseEntity<>(dtoPaymentReturn, HttpStatus.BAD_REQUEST);
-                }
-            }
+       
             return new ResponseEntity<>(bills, HttpStatus.OK);
-        }
-        return null;
     }
 }

@@ -157,17 +157,21 @@ public class LockerRepositoryImpl implements LockerRepository {
         return s.get(Locker.class, id);
     }
 
+    @Override
+    public Locker getLockerByResidentId(int residentId) {
+        Session session = this.factory.getObject().getCurrentSession();
+        String hql = "SELECT l FROM Locker l WHERE l.residentId.id = :residentId";
+        Query query = session.createQuery(hql);
+        query.setParameter("residentId", residentId);
+        List<Locker> results = query.getResultList();
 
-//    @Override
-//    public boolean addOrder(Order order) {
-//        try {
-//            Session session = this.factory.getObject().getCurrentSession();
-//            session.save(order);
-//            return true;
-//        } catch (HibernateException ex) {
-//            System.err.print(ex.getMessage());
-//        }
-//        return false;
-//    }
+        if (results.isEmpty()) {
+            return null;
+        } else {
+            Locker locker = results.get(0);
+            locker.setOrder1Set(new HashSet<Order1>(locker.getOrder1Set()));
+            return locker;
+        }
+    }
 
 }

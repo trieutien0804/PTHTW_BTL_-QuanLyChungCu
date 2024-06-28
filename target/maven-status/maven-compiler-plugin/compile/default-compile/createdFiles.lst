@@ -9,6 +9,7 @@ com\chungcu\services\impl\FeedbackServiceImpl.class
 com\chungcu\repositories\impl\ResidentRepositoryImpl.class
 com\chungcu\pojo\Surveyanswer.class
 com\chungcu\configs\TilesConfig.class
+com\chungcu\controllers\ApiLockerController.class
 com\chungcu\pojo\Apartment_.class
 com\chungcu\configs\JwtSecurityConfig.class
 com\chungcu\repositories\FeedbackRepository.class

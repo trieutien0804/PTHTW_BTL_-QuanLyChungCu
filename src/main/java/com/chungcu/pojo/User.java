@@ -75,6 +75,7 @@ public class User implements Serializable {
     @JsonIgnore
     private Resident resident;
     @Transient
+    @JsonIgnore
     private MultipartFile file;
 
     public User() {

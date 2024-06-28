@@ -7,6 +7,7 @@ package com.chungcu.repositories.impl;
 import com.chungcu.pojo.Locker;
 import com.chungcu.pojo.Order1;
 import com.chungcu.repositories.OrderRepository;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -49,6 +50,8 @@ public class OrderRepositoryImpl implements OrderRepository{
         Session session = this.factory.getObject().getCurrentSession();
         try {
             if (order.getId() == null) {
+                Date date = new Date();
+                order.setCreatedAt(date);
                 order.setStatus("Chưa nhận hàng");
                 session.save(order);
             } else {

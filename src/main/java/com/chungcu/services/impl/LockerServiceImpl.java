@@ -53,5 +53,10 @@ public class LockerServiceImpl implements LockerService{
 //
 //    }
 
+    @Override
+    public Locker getLockerByResidentId(int residentId) {
+        return this.lockerRepo.getLockerByResidentId(residentId);
+    }
+
     
 }

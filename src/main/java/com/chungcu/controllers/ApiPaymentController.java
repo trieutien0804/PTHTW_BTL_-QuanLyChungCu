@@ -49,9 +49,6 @@ public class ApiPaymentController {
     @PostMapping("/create_payment")
     @CrossOrigin
     public ResponseEntity<?> createPayment(@RequestBody Bill bill) throws UnsupportedEncodingException {
-//        String orderType = "other";
-//        long amount = Integer.parseInt(req.getParameter("amount"))*100;
-//        String bankCode = req.getParameter("bankCode");
         String vnp_Version = "2.1.0";
         String vnp_Command = "pay";
         String orderType = "other";
@@ -69,19 +66,11 @@ public class ApiPaymentController {
         vnp_Params.put("vnp_CurrCode", "VND");
         vnp_Params.put("vnp_BankCode", "NCB");
 
-//        if (bankCode != null && !bankCode.isEmpty()) {
-//            vnp_Params.put("vnp_BankCode", bankCode);
-//        }
         vnp_Params.put("vnp_TxnRef", vnp_TxnRef);
         vnp_Params.put("vnp_OrderInfo", "Thanh toan ma hoa don:" + bill.getId());
         vnp_Params.put("vnp_OrderType", orderType);
         vnp_Params.put("vnp_Locale", "vn");
-//        String locate = req.getParameter("language");
-//        if (locate != null && !locate.isEmpty()) {
-//            vnp_Params.put("vnp_Locale", locate);
-//        } else {
-//            vnp_Params.put("vnp_Locale", "vn");
-//        }
+
         vnp_Params.put("vnp_ReturnUrl", PaymentVNPayConfig.vnp_ReturnUrl);
         vnp_Params.put("vnp_IpAddr", vnp_IpAddr);
 

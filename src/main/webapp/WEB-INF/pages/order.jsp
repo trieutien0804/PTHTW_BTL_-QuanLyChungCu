@@ -35,7 +35,12 @@
                             </c:choose>
                         </p>
                         <p class="card-text">Tạo lúc: ${order1.createdAt}</p>
-                        <a type="button" href="<c:url value="/admin/confirmTakeOrder/${order1.id}" />" class="btn btn-gold">Xác nhận nhận hàng</a>
+                        <c:choose>
+                            <c:when test="${order1.status == 'Chưa nhận hàng'}">
+                                <a type="button" href="<c:url value="/admin/confirmTakeOrder/${order1.id}" />" class="btn btn-gold">Xác nhận nhận hàng</a>
+                            </c:when>
+                        </c:choose>
+                        
                     </div>
                 </div>
             </div>
